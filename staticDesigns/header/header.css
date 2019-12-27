@@ -56,6 +56,9 @@ body {
 
 
 /* ######################################################### */
+body {
+    margin-top: 50px;
+}
 
 header {
     height: 50px;
@@ -320,10 +323,10 @@ nav:hover #nav-current {
 #message-num {
     position: absolute;
     right: 3px;
-    top: -3px;
+    top: 5px;
 
-    padding:  0 3px 0 3px;
-    font-size: 9px;
+    padding:  0 3.2px 0 3.2px;
+    font-size: 8.5px;
     font-family: "Open Sans", serif;
     color: white;
     border-radius: 100%;
