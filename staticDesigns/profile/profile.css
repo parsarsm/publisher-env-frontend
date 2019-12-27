@@ -158,8 +158,10 @@ aside {
 main {
     flex-grow: 1;
 }
+
 main > div {
     border-radius: 4px;
+    overflow: hidden;
 }
 
 /*EMPTY*/
@@ -174,12 +176,91 @@ main > .empty {
     font-weight: bold;
     color: #1A1A1B;
 }
+
 /*END EMPTY*/
 
 
 /*MY POSTS*/
+.my-posts {
+    background-color: white;
+}
+
+.profile-post {
+    height: 80px;
+    display: flex;
+}
+
+.profile-post-score {
+    width: 40px;
+    height: 100%;
+    background-color: #f7f9fa;
+    padding: 8px 4px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-post-score > * {
+    width: 100%;
+}
+
+.profile-post-score > p {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+}
 
 
+.profile-post-score > img {
+    width: 15px;
+    height: 15px;
+    opacity: .2;
+    padding: 5px;
+    border-radius: 3px;
+}
 
+.profile-post-score > img:hover {
+    background-color: rgba(26, 26, 27, .1);
+}
+
+.profile-post-score > img:first-child:hover {
+    opacity: .6;
+}
+
+.profile-post-score > img:last-child:hover {
+    opacity: .6;
+}
+
+.positive-score {
+    color: #93c572;
+}
+
+.negative-score {
+    color: #ff4d4d;
+}
+
+.zero-score {
+    color: #878a8c;
+}
+
+.profile-post-img > img {
+    width: 20px;
+}
+.profile-post-img {
+    background-color: rgb(248, 248, 248);
+    margin: 10px;
+    width: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-post-info-options img {
+    width: 16px;
+}
 /*END MY POSTS*/
 
