@@ -1,7 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
 @font-face {
     font-family: gg;
     src: url("https://www.redditstatic.com/desktop2x/fonts/IBMPlexSans/Medium-c4b185e25a4dde85a29f902cd5ce5360.woff2");
 }
+
+@font-face {
+    font-family: latto;
+    src: url("https://semantic-ui.com/fonts/lato/Lato-Bold.woff2");
+}
+
+/*@font-face {*/
+/*    font-family: latto_legg;*/
+/*    src: url("https://semantic-ui.com/fonts/lato/Lato-Regular.woff2");*/
+/*}*/
 
 #profile-header {
     height: 40px;
@@ -182,12 +194,15 @@ main > .empty {
 
 /*MY POSTS*/
 .my-posts {
-    background-color: white;
+    /*background-color: white;*/
 }
 
 .profile-post {
     height: 80px;
     display: flex;
+    margin-bottom: 2px;
+    background-color: white;
+    border-radius: 4px;;
 }
 
 .profile-post-score {
@@ -217,7 +232,7 @@ main > .empty {
 .profile-post-score > img {
     width: 15px;
     height: 15px;
-    opacity: .2;
+    opacity: .5;
     padding: 5px;
     border-radius: 3px;
 }
@@ -227,11 +242,11 @@ main > .empty {
 }
 
 .profile-post-score > img:first-child:hover {
-    opacity: .6;
+    opacity: .8;
 }
 
 .profile-post-score > img:last-child:hover {
-    opacity: .6;
+    opacity: .8;
 }
 
 .positive-score {
@@ -249,6 +264,7 @@ main > .empty {
 .profile-post-img > img {
     width: 20px;
 }
+
 .profile-post-img {
     background-color: rgb(248, 248, 248);
     margin: 10px;
@@ -262,5 +278,152 @@ main > .empty {
 .profile-post-info-options img {
     width: 16px;
 }
+
+.profile-post-info-title {
+    font-size: 16px;
+    /*font-weight: 500;*/
+    color: #9b9b9b;
+    /*text-transform: capitalize;*/
+}
+
+.profile-post-info-datetime {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.profile-post-info {
+    flex-grow: 1;
+    /*margin-left: 10px;*/
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*background-color: #7C7C7C;*/
+
+}
+
+.profile-post-info > * {
+    /*width: 100%;*/
+}
+
+.profile-post-info-options img {
+    height: 15px;
+    width: 15px;
+    margin-right: 3px;
+}
+
+.profile-post-info-options {
+    display: flex;
+}
+
+.profile-post-info-options > a {
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    padding: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #878a8c;
+    border-radius: 2px;
+    text-transform: capitalize;
+    margin-right: 3px;
+}
+
+.profile-post-info-options > a:hover {
+    background-color: rgba(26, 26, 27, 0.1);
+}
+
 /*END MY POSTS*/
 
+/*FOLLOWERS AND FOLLOWINGS*/
+.followers, .followings {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.card {
+    width: 290px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    background-color: white;
+    border-radius: 4px;
+    overflow: hidden;
+    /*border: 1px solid rgba(0, 0, 0, 0.8);*/
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+
+}
+
+.card * {
+    font-family: Lato, "Helvetica Neue", arial, serif;
+}
+
+.card-middle {
+    padding: 14px;
+}
+
+.card-title {
+    /*font-family: latto, "Helvetica Neue", arial, serif;*/
+    font-weight: bold;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.87);
+    text-transform: capitalize;
+    margin-bottom: 3.5px;
+}
+
+.card-desc {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.68);
+    margin-top: 7px;
+}
+
+.card-user {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.card > * {
+    width: 100%;
+}
+
+.card-image {
+    width: 290px;
+    height: 290px;
+}
+
+.card-post-num {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.card-post-num-img {
+    width: 14px;
+    margin-right: 6px;
+}
+
+.card-post-num-text {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.card-join-date {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.card-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    /*border-top-width: 1px;*/
+    /*border-top-color: rgba(0, 0, 0, 0.05);*/
+    padding: 10.5px 14px;
+}
+
+/*END FOLLOWERS AND FOLLOWINGS*/
