@@ -63,6 +63,8 @@
 aside {
     margin-left: 20px;
     width: 310px;
+    min-width: 280px;
+    z-index: -1;
 }
 
 #user-info {
@@ -340,6 +342,7 @@ main > .empty {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    justify-content: space-around;
 }
 
 .card {
