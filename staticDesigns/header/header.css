@@ -16,6 +16,7 @@ body {
     font-family: myf;
     /*font-size: 13px;*/
 }
+
 /*############################################################*/
 .tooltip {
     position: relative;
@@ -61,6 +62,8 @@ body {
 }
 
 header {
+    z-index: 1;
+
     height: 50px;
     width: 100%;
     padding: 0px 20px;
@@ -325,12 +328,62 @@ nav:hover #nav-current {
     right: 3px;
     top: 5px;
 
-    padding:  0 3.2px 0 3.2px;
+    padding: 0 3.2px 0 3.2px;
     font-size: 8.5px;
     font-family: "Open Sans", serif;
     color: white;
     border-radius: 100%;
     background-color: rgb(255, 69, 0);
+}
+
+.user-auth {
+    padding: 0 10px 0 10px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 170px;
+    height: 36px;
+
+}
+
+.user-auth > *:hover {
+    opacity: 0.8;
+}
+
+.login {
+    width: 77px;
+    height: 32px;
+    border: 1px solid #2d79d3;
+    color: #2d79d3;
+    text-transform: uppercase;
+    padding: 3px 16px;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3px;
+}
+
+.sign-up {
+    width: 77px;
+    height: 32px;
+    border: 1px solid #2d79d3;
+    color: white;
+    background-color: #2d79d3;
+    text-transform: uppercase;
+    /*padding: 3px 16px;*/
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
