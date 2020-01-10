@@ -143,39 +143,40 @@
 </header>
 
 <main>
-    <div class="post-title">Create a post</div>
-    <div class="post-choose-community">
-        <input list="communities-list" name="sadf" placeholder="Choose a community">
-        <datalist id="communities-list">
-            <option value="choose a community" disabled selected></option>
-            <option value="parsa rsm"></option>
-            <option value="my community 1"></option>
-            <option value="my community two"></option>
-        </datalist>
-    </div>
-    <div class="post-container">
-        <input placeholder="Title" type="text" name="" id="post-title">
-        <div id="summernote"></div>
-        <script>
-            $('#summernote').summernote({
-                placeholder: 'Start writing !',
-                tabsize: 2,
-                height: 450,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['color', ['blue']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview', 'help']]
-                ]
-            });
-        </script>
-        <div class="post-bottom"><a href="" id="submit-post" >post</a></div>
-    </div>
+    <div>
+        <div class="post-title">Create a post</div>
+        <div class="post-choose-community">
+            <input list="communities-list" name="sadf" placeholder="Choose a community">
+            <datalist id="communities-list">
+                <option value="choose a community" disabled selected></option>
+                <option value="parsa rsm"></option>
+                <option value="my community 1"></option>
+                <option value="my community two"></option>
+            </datalist>
+        </div>
+        <div class="post-container">
+            <input placeholder="Title" type="text" name="" id="post-title">
+            <div id="summernote"></div>
+            <script>
+                $('#summernote').summernote({
+                    placeholder: 'Start writing !',
+                    tabsize: 2,
+                    height: 450,
+                    toolbar: [
+                        ['style', ['style']],
+                        ['font', ['bold', 'underline', 'clear']],
+                        ['color', ['blue']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['table', ['table']],
+                        ['insert', ['link', 'picture', 'video']],
+                        ['view', ['fullscreen', 'codeview', 'help']]
+                    ]
+                });
+            </script>
+            <div class="post-bottom"><a href="" id="submit-post">post</a></div>
+        </div>
 
-
+    </div>
 </main>
 
 </body>
