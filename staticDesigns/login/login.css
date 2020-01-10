@@ -19,6 +19,7 @@
     border-radius: 4px;
     cursor: pointer;
 }
+
 #close:hover {
     background-color: #e7f3fe;
 }
@@ -36,6 +37,10 @@
 
 .login-module-form > * {
     width: 100%;
+}
+
+.login-module-form input, .login-module-form button {
+    outline: none;
 }
 
 .login-module-logo > img {
@@ -64,7 +69,7 @@
 
 }
 
-.login-module-username input{
+.login-module-username input {
     width: 392px;
     height: 48px;
     padding: 22px 36px 10px 12px;
@@ -76,7 +81,7 @@
 }
 
 
-.login-module-username input:hover{
+.login-module-username input:hover {
     border-color: #0079D3;
 }
 
@@ -93,11 +98,12 @@
     position: relative;
 
 }
-.login-module-password input:hover{
+
+.login-module-password input:hover {
     border-color: #0079D3;
 }
 
-.login-module-password input{
+.login-module-password input {
     width: 392px;
     height: 48px;
     padding: 22px 36px 10px 12px;
@@ -112,7 +118,7 @@
     margin-top: 24px;
 }
 
-.login-module-button button{
+.login-module-button button {
     width: 155px;
     height: 35px;
     background-color: #0079d3;
@@ -128,6 +134,7 @@
     border: none;
     cursor: pointer;
 }
+
 .login-module-button button:hover {
     opacity: .75;
 }
@@ -137,7 +144,7 @@
     font-size: 12px;
 }
 
-.login-module-additional a{
+.login-module-additional a {
     text-decoration: none;
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: bold;
@@ -145,16 +152,19 @@
 }
 
 @media all and (max-width: 770px) {
-    .login-module{
+    .login-module {
         width: 95%;
     }
-    .login-module-username input{
+
+    .login-module-username input {
         width: 70%;
     }
-    .login-module-password input{
+
+    .login-module-password input {
         width: 70%;
     }
-    .login-module-button button{
+
+    .login-module-button button {
         width: 40%;
     }
 
