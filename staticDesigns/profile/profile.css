@@ -429,3 +429,19 @@ main > .empty {
 }
 
 /*END FOLLOWERS AND FOLLOWINGS*/
+
+@media all and (max-width: 780px) {
+    .main-container {
+        /*flex-direction: row-reverse;*/
+        flex-wrap: wrap-reverse;
+    }
+
+    .main-container > * {
+        width: 100%;
+    }
+
+    aside {
+        margin: 0 0 10px;
+    }
+}
+
