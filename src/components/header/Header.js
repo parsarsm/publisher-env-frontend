@@ -17,6 +17,7 @@ import profTest from "../../static/pics/temp/proftest1.jpg"
 import orangeDot from "../../static/pics/orange-dot.png"
 import PopUpModal from "../popUpModal/PopUpModal";
 import LoginModal from "../loginModal/LoginModal";
+import SignUpModal from "../signupModal/SignUpModal";
 
 export default class Header extends React.Component {
     state = {
@@ -80,9 +81,14 @@ export default class Header extends React.Component {
     render() {
         return (
             <header>
-                <PopUpModal show={this.state.showLogInModal} >
+                <PopUpModal show={this.state.showLogInModal}>
                     <LoginModal hideFunc={this.hideLoginModal}/>
                 </PopUpModal>
+
+                <PopUpModal show={this.state.showSignUpModal}>
+                    <SignUpModal hideFunc={this.hideSignUpModal}/>
+                </PopUpModal>
+
                 <a id="logo-link" href>
                     <img id="logo" src={logo} alt="logo"/>
                 </a>
@@ -137,7 +143,10 @@ export default class Header extends React.Component {
                             e.preventDefault();
                             this.setState({showLogInModal: true})
                         }}>login</a>
-                        <a href="" className="sign-up">sign up</a>
+                        <a href="" className="sign-up" onClick={(e) => {
+                            e.preventDefault();
+                            this.setState({showSignUpModal: true})
+                        }}>sign up</a>
                     </div>
 
                 )
