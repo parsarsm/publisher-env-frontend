@@ -1,0 +1,182 @@
+.login-module {
+    width: 750px;
+    height: 550px;
+
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+    /*border: 1px solid red;*/
+    border-radius: 4px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    position: relative;
+}
+
+#close {
+    position: absolute;
+    width: 20px;
+    top: 20px;
+    right: 20px;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#close:hover {
+    background-color: #e7f3fe;
+}
+
+.login-module-pic {
+    height: 100%;
+}
+
+.login-module-form {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 24px;
+}
+
+
+.login-module-form > * {
+    width: 100%;
+}
+
+.login-module-form input, .login-module-form button {
+    outline: none;
+}
+
+.login-module-logo > img {
+    width: 40px;
+    /*margin: 0 0 8px;*/
+}
+
+.login-module-title > p {
+    font-size: 18px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.login-module-username label {
+    position: absolute;
+    top: 5px;
+    left: 7px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #a5a4a4;
+}
+
+.login-module-username {
+    position: relative;
+    margin-bottom: 5px;
+
+}
+
+.login-module-username input {
+    width: 392px;
+    height: 48px;
+    padding: 22px 36px 10px 12px;
+    background-color: #e7f3fe;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+
+.login-module-username input:hover {
+    border-color: #0079D3;
+}
+
+.login-module-password label {
+    position: absolute;
+
+    top: 5px;
+    left: 7px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #a5a4a4;
+}
+
+.login-module-password {
+    position: relative;
+
+}
+
+.login-module-password input:hover {
+    border-color: #0079D3;
+}
+
+.login-module-password input {
+    width: 392px;
+    height: 48px;
+    padding: 22px 36px 10px 12px;
+    background-color: #e7f3fe;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-weight: 400;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.login-module-button {
+    margin-top: 24px;
+}
+
+.login-module-button button {
+    width: 155px;
+    height: 35px;
+    background-color: #0079d3;
+    color: white;
+    font-weight: bold;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 13px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    padding: 1px 6px;
+    box-sizing: border-box;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+}
+
+.login-module-button button:hover {
+    opacity: .75;
+}
+
+.login-module-additional {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 12px;
+}
+
+.login-module-additional a {
+    text-decoration: none;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: bold;
+    color: #0079D3;
+}
+
+@media all and (max-width: 770px) {
+    .login-module {
+        width: 95%;
+    }
+
+    .login-module-username input {
+        width: 70%;
+    }
+
+    .login-module-password input {
+        width: 70%;
+    }
+
+    .login-module-button button {
+        width: 40%;
+    }
+
+}
+
+@media all and (max-width: 500px) {
+    .login-module-pic {
+        display: none;
+    }
+}
