@@ -1,6 +1,5 @@
 import React from 'react'
-import PHeader from "../../componentsV2/header/PHeader";
-import {Container, Feed, Grid, Icon, Input, Menu} from "semantic-ui-react";
+import {Button, Comment, Container, Feed, Form, Grid, Header, Icon, Image, Input, Menu, Modal} from "semantic-ui-react";
 import SearchBar from "../../componentsV2/search/Search";
 
 
@@ -10,7 +9,7 @@ export default class HomePage extends React.Component {
     handleItemClick = (e, {name}) => this.setState({activeItem: name})
 
     render() {
-        const {activeItem} = this.state
+        const {activeItem} = this.state;
 
         return (
             <Container>
@@ -45,9 +44,107 @@ export default class HomePage extends React.Component {
                                         <Feed.Like>
                                             <Icon name='like'/>4 Likes
                                         </Feed.Like>
-                                        <Feed.Like>
+                                        <Modal trigger={<Feed.Like>
                                             <Icon name='comments'/>4 Comments
-                                        </Feed.Like>
+                                        </Feed.Like>}>
+                                            <Modal.Header>Post</Modal.Header>
+                                            <Modal.Content image scrolling>
+                                                <Image size='medium'
+                                                       src='https://react.semantic-ui.com/images/wireframe/image.png'
+                                                       wrapped/>
+
+                                                <Modal.Description>
+                                                    <Header>Post Title</Header>
+                                                    <p>
+                                                        This is an example of expanded content that will cause the
+                                                        modal's
+                                                        dimmer to scroll  This is an example of expanded content that will cause the
+                                                        modal's
+                                                        dimmer to scroll  This is an example of expanded content that will cause the
+                                                        modal's
+                                                        dimmer to scroll  This is an example of expanded content that will cause the
+                                                        modal's
+                                                        dimmer to scroll
+                                                    </p>
+
+                                                    <Comment.Group>
+                                                        <Header as='h3' dividing>
+                                                            Comments
+                                                        </Header>
+
+                                                        <Comment>
+                                                            <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/matt.jpg' />
+                                                            <Comment.Content>
+                                                                <Comment.Author as='a'>Matt</Comment.Author>
+                                                                <Comment.Metadata>
+                                                                    <div>Today at 5:42PM</div>
+                                                                </Comment.Metadata>
+                                                                <Comment.Text>How artistic!</Comment.Text>
+                                                                <Comment.Actions>
+                                                                    <Comment.Action>Reply</Comment.Action>
+                                                                </Comment.Actions>
+                                                            </Comment.Content>
+                                                        </Comment>
+
+                                                        <Comment>
+                                                            <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/elliot.jpg' />
+                                                            <Comment.Content>
+                                                                <Comment.Author as='a'>Elliot Fu</Comment.Author>
+                                                                <Comment.Metadata>
+                                                                    <div>Yesterday at 12:30AM</div>
+                                                                </Comment.Metadata>
+                                                                <Comment.Text>
+                                                                    <p>This has been very useful for my research. Thanks as well!</p>
+                                                                </Comment.Text>
+                                                                <Comment.Actions>
+                                                                    <Comment.Action>Reply</Comment.Action>
+                                                                </Comment.Actions>
+                                                            </Comment.Content>
+                                                            <Comment.Group>
+                                                                <Comment>
+                                                                    <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/jenny.jpg' />
+                                                                    <Comment.Content>
+                                                                        <Comment.Author as='a'>Jenny Hess</Comment.Author>
+                                                                        <Comment.Metadata>
+                                                                            <div>Just now</div>
+                                                                        </Comment.Metadata>
+                                                                        <Comment.Text>Elliot you are always so right :)</Comment.Text>
+                                                                        <Comment.Actions>
+                                                                            <Comment.Action>Reply</Comment.Action>
+                                                                        </Comment.Actions>
+                                                                    </Comment.Content>
+                                                                </Comment>
+                                                            </Comment.Group>
+                                                        </Comment>
+
+                                                        <Comment>
+                                                            <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />
+                                                            <Comment.Content>
+                                                                <Comment.Author as='a'>Joe Henderson</Comment.Author>
+                                                                <Comment.Metadata>
+                                                                    <div>5 days ago</div>
+                                                                </Comment.Metadata>
+                                                                <Comment.Text>Dude, this is awesome. Thanks so much</Comment.Text>
+                                                                <Comment.Actions>
+                                                                    <Comment.Action>Reply</Comment.Action>
+                                                                </Comment.Actions>
+                                                            </Comment.Content>
+                                                        </Comment>
+
+                                                        <Form reply>
+                                                            <Form.TextArea />
+                                                            <Button content='Add Reply' labelPosition='left' icon='edit' primary />
+                                                        </Form>
+                                                    </Comment.Group>
+                                                </Modal.Description>
+                                            </Modal.Content>
+                                            <Modal.Actions>
+                                                <Button primary>
+                                                    Proceed <Icon name='chevron right'/>
+                                                </Button>
+                                            </Modal.Actions>
+                                        </Modal>
+
 
                                     </Feed.Meta>
                                 </Feed.Content>

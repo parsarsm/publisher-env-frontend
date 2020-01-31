@@ -84,6 +84,7 @@ export default class Profile extends React.Component {
             </Feed></Tab.Pane>,
         },
         {
+            menuItem: 'Followers',
             render: () => <Tab.Pane attached={false}><Card.Group>
                 <Card>
                     <Card.Content>
@@ -148,7 +149,6 @@ export default class Profile extends React.Component {
                     </Card.Content>
                 </Card>
             </Card.Group></Tab.Pane>,
-            menuItem: 'Followers',
         },
         {
             menuItem: 'Followings',
