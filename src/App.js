@@ -9,9 +9,11 @@ import PHeader from "./componentsV2/header/PHeader";
 import HomePage from "./pagesV2/homePage/homePage";
 import {Container} from "semantic-ui-react";
 import SignUp from "./pagesV2/signUp/SignUp";
+import Profile from "./pagesV2/profile/Profile";
 // import "./fonts.css"
 
 export default function App() {
+
     return (
         <Router>
             <PHeader/>
@@ -23,9 +25,9 @@ export default function App() {
                     <Route exact path="/signUp">
                         <SignUp/>
                     </Route>
-                    {/*<Route path="/profile">*/}
-                    {/*    <UserProfile/>*/}
-                    {/*</Route>*/}
+                    <Route path="/profile">
+                        <Profile/>
+                    </Route>
                     {/*<Route path="/newPost">*/}
                     {/*    <EditPost/>*/}
                     {/*</Route>*/}
