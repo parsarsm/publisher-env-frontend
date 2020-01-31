@@ -10,6 +10,7 @@ import HomePage from "./pagesV2/homePage/homePage";
 import {Container} from "semantic-ui-react";
 import SignUp from "./pagesV2/signUp/SignUp";
 import Profile from "./pagesV2/profile/Profile";
+import Post from "./pagesV2/post/Post";
 // import "./fonts.css"
 
 export default function App() {
@@ -25,12 +26,12 @@ export default function App() {
                     <Route exact path="/signUp">
                         <SignUp/>
                     </Route>
-                    <Route path="/profile">
+                    <Route exact path="/profile">
                         <Profile/>
                     </Route>
-                    {/*<Route path="/newPost">*/}
-                    {/*    <EditPost/>*/}
-                    {/*</Route>*/}
+                    <Route exact path="/post">
+                        <Post/>
+                    </Route>
                 </Switch>
             </Container>
 

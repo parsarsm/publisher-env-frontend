@@ -58,13 +58,13 @@ export default class PHeader extends Component {
                                         <Form size='large'>
                                             <Segment stacked>
                                                 <Form.Input fluid icon='user' iconPosition='left'
-                                                            placeholder='E-mail address/Username'/>
-                                                <Form.Input
-                                                    fluid
-                                                    icon='lock'
-                                                    iconPosition='left'
-                                                    placeholder='Password'
-                                                    type='password'
+                                                            placeholder='E-mail address/Username' required/>
+                                                <Form.Input required
+                                                            fluid
+                                                            icon='lock'
+                                                            iconPosition='left'
+                                                            placeholder='Password'
+                                                            type='password'
                                                 />
 
                                                 <Button color='blue' fluid size='large'>

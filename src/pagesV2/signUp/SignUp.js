@@ -23,29 +23,29 @@ export default class signUp extends React.Component {
                 <Segment attached>
                     <Form>
                         <Form.Group widths={"equal"}>
-                            <Form.Field
+                            <Form.Field required
                                 id='form-input-control-username'
                                 control={Input}
                                 label='Username'
                                 placeholder='username'
                             />
-                            <Form.Input label='Password' type='password'/>
+                            <Form.Input label='Password' type='password' required/>
                         </Form.Group>
 
                         <Form.Group widths='equal'>
-                            <Form.Field
+                            <Form.Field required
                                 id='form-input-control-first-name'
                                 control={Input}
                                 label='First name'
                                 placeholder='First name'
                             />
-                            <Form.Field
+                            <Form.Field required
                                 id='form-input-control-last-name'
                                 control={Input}
                                 label='Last name'
                                 placeholder='Last name'
                             />
-                            <Form.Field
+                            <Form.Field required
                                 control={Select}
                                 options={genderOptions}
                                 label={{children: 'Gender', htmlFor: 'form-select-control-gender'}}
