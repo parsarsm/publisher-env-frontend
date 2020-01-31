@@ -1,5 +1,5 @@
 import React from 'react'
-import {Form, Input, TextArea, Button, Select, Header, Icon, Segment, Image} from 'semantic-ui-react'
+import {Form, Input, TextArea, Button, Select, Header, Icon, Segment, Image, Message} from 'semantic-ui-react'
 import {InputFile} from 'semantic-ui-react-input-file'
 
 const genderOptions = [
@@ -59,7 +59,8 @@ export default class signUp extends React.Component {
 
                         <Form.Field>
                             <label>Avatar</label>
-                            <Image src='https://react.semantic-ui.com/images/wireframe/white-image.png' size='medium' bordered />
+                            <Image src='https://react.semantic-ui.com/images/wireframe/white-image.png' size='medium'
+                                   bordered/>
                         </Form.Field>
                         <Form.Field>
                             <InputFile
@@ -89,12 +90,18 @@ export default class signUp extends React.Component {
                             // }
                         />
 
-                        <Form.Field
-                            id='form-button-control-public'
-                            control={Button}
-                            content='Confirm'
-                            label='Label with htmlFor'
-                        />
+                        <Form.Group>
+                            <Form.Field>
+                                <Button  fluid>
+                                    Sign Up
+                                </Button>
+                            </Form.Field>
+                            <Form.Field>
+                                <Button color='google plus' fluid>
+                                    <Icon name='google'/> Sign Up with Google
+                                </Button>
+                            </Form.Field>
+                        </Form.Group>
                     </Form>
                 </Segment>
             </div>

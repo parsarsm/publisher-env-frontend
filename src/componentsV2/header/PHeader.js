@@ -75,7 +75,7 @@ export default class PHeader extends Component {
                                         </Form>
                                         <Message>
                                             <Button color='google plus' fluid size='large'>
-                                                <Icon name='google'/> Sign In whit Google
+                                                <Icon name='google'/> Sign In with Google
                                             </Button>
                                         </Message>
                                     </Grid.Column>
