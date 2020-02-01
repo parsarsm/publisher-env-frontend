@@ -6,7 +6,7 @@ import Posts from "../../componentsV2/posts/Posts";
 
 export default class HomePage extends React.Component {
     state = {
-        activeItem: 'home',
+        activeItem: 'followed',
         posts: [
             {
                 id: 1,
@@ -104,18 +104,23 @@ export default class HomePage extends React.Component {
                         <SearchBar/>
                         <Menu pointing secondary vertical>
                             <Menu.Item
-                                name='home'
-                                active={activeItem === 'home'}
+                                name='followed'
+                                active={activeItem === 'followed'}
                                 onClick={this.handleItemClick}
                             />
                             <Menu.Item
-                                name='messages'
-                                active={activeItem === 'messages'}
+                                name='newest'
+                                active={activeItem === 'newest'}
                                 onClick={this.handleItemClick}
                             />
                             <Menu.Item
-                                name='friends'
-                                active={activeItem === 'friends'}
+                                name='hottest'
+                                active={activeItem === 'hottest'}
+                                onClick={this.handleItemClick}
+                            />
+                            <Menu.Item
+                                name='contributed'
+                                active={activeItem === 'contributed'}
                                 onClick={this.handleItemClick}
                             />
                         </Menu>

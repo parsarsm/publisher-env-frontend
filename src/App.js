@@ -11,7 +11,8 @@ import {Container} from "semantic-ui-react";
 import SignUp from "./pagesV2/signUp/SignUp";
 import Profile from "./pagesV2/profile/Profile";
 import Post from "./pagesV2/post/Post";
-import ProfileSettings from "./pagesV2/profileSettings";
+import ProfileSettings from "./pagesV2/profileSettings/profileSettings";
+import Footer from "./componentsV2/footer/Footer";
 
 const routes = {
     homePage: '/',
@@ -47,7 +48,7 @@ export default function App() {
                     </Route>
                 </Switch>
             </Container>
-
+            <Footer/>
         </Router>
 
     );
