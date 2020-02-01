@@ -11,26 +11,40 @@ import {Container} from "semantic-ui-react";
 import SignUp from "./pagesV2/signUp/SignUp";
 import Profile from "./pagesV2/profile/Profile";
 import Post from "./pagesV2/post/Post";
+import ProfileSettings from "./pagesV2/profileSettings";
 // import "./fonts.css"
+
+const routes = {
+    homePage: '/',
+    signUp: '/signUp',
+    profile: '/profile',
+    post: '/post',
+    profileSettings: "/profile/settings",
+    postById: '/post/:postId',
+    profileById: '/profile/:userId',
+}
 
 export default function App() {
 
     return (
         <Router>
             <PHeader/>
-            <Container  style={{marginTop: '7em'}}>
+            <Container style={{marginTop: '7em'}}>
                 <Switch>
-                    <Route exact path="/">
+                    <Route exact path={routes.homePage}>
                         <HomePage/>
                     </Route>
-                    <Route exact path="/signUp">
+                    <Route exact path={routes.signUp}>
                         <SignUp/>
                     </Route>
-                    <Route exact path="/profile">
+                    <Route exact path={routes.profile}>
                         <Profile/>
                     </Route>
-                    <Route exact path="/post">
+                    <Route exact path={routes.post}>
                         <Post/>
+                    </Route>
+                    <Route exact path={routes.profileSettings}>
+                        <ProfileSettings/>
                     </Route>
                 </Switch>
             </Container>

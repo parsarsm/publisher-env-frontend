@@ -14,10 +14,36 @@ import {
     Icon
 } from 'semantic-ui-react'
 import logo from '../../static/pics/logo.svg'
+import routes from "../../api/routes";
+import {Link} from "react-router-dom";
 
 export default class PHeader extends Component {
     state = {
-        isLoggedIn: false
+        isLoggedIn: false,
+        notification: {
+            newFollowers: [
+                {
+                    id: 1,
+                    name: 'Payam Mohammadi'
+                },
+                {
+                    id: 2,
+                    name: 'Aryan Sadeghi'
+                }
+            ],
+            newComments: [
+                {
+                    postId: 1,
+                    postTitle: 'Some post title',
+                    usersNames: ['Akbar Ganji', 'Imam Khomeyni'] // users who commented (new) under this post
+                },
+                {
+                    postId: 2,
+                    postTitle: 'Some other post title !',
+                    usersNames: ['Trump', 'Jeremy Clarkson', 'James May', 'Richard Hammond'] // users who commented (new) under this post
+                }
+            ]
+        }
     };
 
     handleItemClick = (e, {name}) => this.setState({activeItem: name});
@@ -32,24 +58,7 @@ export default class PHeader extends Component {
                     </Menu.Item>
                     <Menu.Item as='a'>Home</Menu.Item>
 
-                    <Dropdown item simple text='Dropdown'>
-                        <Dropdown.Menu>
-                            <Dropdown.Item>List Item</Dropdown.Item>
-                            <Dropdown.Item>List Item</Dropdown.Item>
-                            <Dropdown.Divider/>
-                            <Dropdown.Header>Header Item</Dropdown.Header>
-                            <Dropdown.Item>
-                                <i className='dropdown icon'/>
-                                <span className='text'>Submenu</span>
-                                <Dropdown.Menu>
-                                    <Dropdown.Item>List Item</Dropdown.Item>
-                                    <Dropdown.Item>List Item</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown.Item>
-                            <Dropdown.Item>List Item</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
-
+                    <Notification {...this.state.notification}/>
                     {!this.state.isLoggedIn ? (<>
                             <Menu.Item position="right" as='a'>Sign Up</Menu.Item>
                             <Popup trigger={<Menu.Item as='a'>Log In</Menu.Item>} flowing hoverable>
@@ -91,4 +100,38 @@ export default class PHeader extends Component {
             </Menu>
         )
     }
+}
+
+function Notification(props) {
+    return (
+        <Dropdown item simple text='Notifications'>
+            <Dropdown.Menu>
+                <Dropdown.Header>New Followers</Dropdown.Header>
+                <Dropdown.Item>
+                    <i className='dropdown icon'/>
+                    <span className='text'>People</span>
+                    <Dropdown.Menu>
+                        {props.newFollowers.map((follower) => (
+                            <Dropdown.Item> Follower 1</Dropdown.Item>
+                        ))}
+                    </Dropdown.Menu>
+                </Dropdown.Item>
+                <Dropdown.Header>New Comments</Dropdown.Header>
+                {props.newComments.map((post) => (
+                    <Dropdown.Item>
+                        <i className='dropdown icon'/>
+                        <span className='text'>{post.postTitle}</span>
+                        <Dropdown.Menu>
+                            {post.usersNames.map(
+                                (name) => (<Dropdown.Item>{name}</Dropdown.Item>
+                                )
+                            )}
+                        </Dropdown.Menu>
+                    </Dropdown.Item>
+                ))}
+
+            </Dropdown.Menu>
+        </Dropdown>
+
+    )
 }

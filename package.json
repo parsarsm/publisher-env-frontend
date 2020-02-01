@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "draft-js": "^0.11.4",
     "faker": "^4.1.0",
+    "jodit-react": "^1.0.37",
     "loadash": "^1.0.0",
     "lodash": "^4.17.15",
     "react": "^16.12.0",

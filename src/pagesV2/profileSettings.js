@@ -34,15 +34,15 @@ const countryOptions = [
     {key: 'bj', value: 'bj', flag: 'bj', text: 'Benin'},
 ]
 
-export default class signUp extends React.Component {
+export default class ProfileSettings extends React.Component {
     handleUpload = () => '';
 
     render() {
         return (
             <div>
                 <Header as='h2' attached={"top"} block>
-                    <Icon name='signup'/>
-                    <Header.Content>Sign Up</Header.Content>
+                    <Icon name='settings'/>
+                    <Header.Content>Profile Settings</Header.Content>
                 </Header>
 
 
@@ -54,6 +54,7 @@ export default class signUp extends React.Component {
                                         control={Input}
                                         label='Username'
                                         placeholder='username'
+
                             />
                             <Form.Input label='Password' type='password' required/>
                         </Form.Group>
@@ -132,13 +133,10 @@ export default class signUp extends React.Component {
                         <Form.Group>
                             <Form.Field>
                                 <Button fluid>
-                                    Sign Up
+                                    Save
                                 </Button>
                             </Form.Field>
                             <Form.Field>
-                                <Button color='google plus' fluid>
-                                    <Icon name='google'/> Sign Up with Google
-                                </Button>
                             </Form.Field>
                         </Form.Group>
                     </Form>
