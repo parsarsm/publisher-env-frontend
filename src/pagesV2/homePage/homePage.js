@@ -14,11 +14,71 @@ export default class HomePage extends React.Component {
                 userId: 1,
                 userName: 'Elliot Fu',
                 userAvatar: 'https://react.semantic-ui.com/images/avatar/small/elliot.jpg',
-                timeElapsed: '2 Hours',
+                timeElapsed: '2 Hours Ago',
                 likeNum: 4,
                 dislikeNum: 2,
                 commentNum: 6,
-                comments: [],
+                comments: [
+                    {
+                        id: 1,
+                        text: 'How artistic!',
+                        userId: 2,
+                        userAvatar: 'https://react.semantic-ui.com/images/avatar/small/matt.jpg',
+                        userName: 'Matt',
+                        time: 'Today at 5:42PM',
+                        child: [{
+                            id: 1,
+                            text: 'How artistic!',
+                            userId: 2,
+                            userAvatar: 'https://react.semantic-ui.com/images/avatar/small/matt.jpg',
+                            userName: 'Matt',
+                            time: 'Today at 5:42PM',
+                            child: []
+                        },
+                        ]
+                    },
+                    {
+                        id: 2,
+                        text: 'How artistic!',
+                        userId: 2,
+                        userAvatar: 'https://react.semantic-ui.com/images/avatar/small/elliot.jpg',
+                        userName: 'Matt',
+                        time: 'Yesterday at 5:42PM',
+                        child: []
+                    }, {
+                        id: 3,
+                        text: 'How artistic!',
+                        userId: 2,
+                        userAvatar: 'https://react.semantic-ui.com/images/avatar/small/jenny.jpg',
+                        userName: 'Matt',
+                        time: 'Today at 5:42PM',
+                        child: [{
+                            id: 3,
+                            text: 'How artistic!',
+                            userId: 2,
+                            userAvatar: 'https://react.semantic-ui.com/images/avatar/small/jenny.jpg',
+                            userName: 'Matt',
+                            time: 'Just now',
+                            child: []
+                        }, {
+                            id: 4,
+                            text: 'How artistic!',
+                            userId: 2,
+                            userAvatar: 'https://react.semantic-ui.com/images/avatar/small/joe.jpg',
+                            userName: 'Matt',
+                            time: 'Today at 5:42PM',
+                            child: []
+                        },]
+                    }, {
+                        id: 4,
+                        text: 'How artistic!',
+                        userId: 2,
+                        userAvatar: 'https://react.semantic-ui.com/images/avatar/small/joe.jpg',
+                        userName: 'Matt',
+                        time: 'Today at 5:42PM',
+                        child: []
+                    },
+                ],
                 // images: ['https://react.semantic-ui.com/images/wireframe/image.png','https://react.semantic-ui.com/images/wireframe/image.png'],
                 text: 'Ours is a life of constant reruns. We\'re always circling back to where we\'d we started, then starting all over again. Even if we don\'t run extra laps that day, we surely will come back for more of the same another day soon.',
                 fullText:  // with images!
