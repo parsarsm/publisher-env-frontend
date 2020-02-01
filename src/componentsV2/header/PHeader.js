@@ -14,8 +14,6 @@ import {
     Icon
 } from 'semantic-ui-react'
 import logo from '../../static/pics/logo.svg'
-import routes from "../../api/routes";
-import {Link} from "react-router-dom";
 
 export default class PHeader extends Component {
     state = {
