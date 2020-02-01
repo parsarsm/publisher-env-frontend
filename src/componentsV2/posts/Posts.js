@@ -7,7 +7,7 @@ export default class Posts extends React.Component {
     render() {
         return (
             <Feed>
-                {this.props.posts.map(post => (
+                {this.props.posts[this.props.activeItem].map(post => (
                     <Feed.Event>
                         <Feed.Label>
                             <img src={post.userAvatar}/>

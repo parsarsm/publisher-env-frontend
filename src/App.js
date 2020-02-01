@@ -46,6 +46,7 @@ export default function App() {
                     <Route exact path={routes.profileSettings}>
                         <ProfileSettings/>
                     </Route>
+
                 </Switch>
             </Container>
             <Footer/>
