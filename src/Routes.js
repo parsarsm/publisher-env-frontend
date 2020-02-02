@@ -1,42 +1,37 @@
 import React from "react";
-import {Route, Switch} from "react-router-dom";
+import {Route, Switch, Redirect} from "react-router-dom";
 import HomePage from "./pages/homePage/homePage";
 import SignUp from "./pages/signUp/SignUp";
 import Profile from "./pages/profile/Profile";
 import Post from "./pages/post/Post";
 import ProfileSettings from "./pages/profileSettings/profileSettings";
 import Page from "./components/containers/Page";
+import FeedPage from "./pages/FeedPage";
+import HotPostsPage from "./pages/HotPostsPage";
+import LoginPage from "./pages/Login";
 
 const routes = {
-    homePage: '/',
-    signUp: '/signUp',
-    profile: '/' +
-        '',
-    post: '/post',
-    profileSettings: "/profile/settings",
-    postById: '/post/:postId',
-    profileById: '/profile/:userId',
+    FEED: '/feed',
+    HOT_POSTS: '/hot',
+    LATEST_POSTS: '/latest',
+    LOGIN: '/login',
+    SIGN_UP: '/signup',
 };
 
 export default function Routes() {
     return (
         <Page>
             <Switch>
-                <Route exact path={routes.homePage}>
-                    <HomePage/>
+                <Route exact path={routes.FEED}>
+                    <FeedPage/>
                 </Route>
-                <Route exact path={routes.signUp}>
-                    <SignUp/>
+                <Route exact path={routes.HOT_POSTS}>
+                    <HotPostsPage/>
                 </Route>
-                <Route exact path={routes.profile}>
-                    <Profile/>
+                <Route exact path={routes.LOGIN}>
+                    <LoginPage/>
                 </Route>
-                <Route exact path={routes.post}>
-                    <Post/>
-                </Route>
-                <Route exact path={routes.profileSettings}>
-                    <ProfileSettings/>
-                </Route>
+                <Redirect to={routes.HOT_POSTS}/>
             </Switch>
         </Page>
     );

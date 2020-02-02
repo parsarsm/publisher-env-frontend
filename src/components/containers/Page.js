@@ -15,7 +15,7 @@ const examplePosts = [
             name: 'Elliot Fu',
             avatar: 'https://react.semantic-ui.com/images/avatar/small/elliot.jpg',
         },
-        createdAt: Date.now() - parseInt(Math.random() * 3 * 3600),
+        createdAt: Date.now() - parseInt(Math.random() * 3 * 3600 * 1000),
         likes: 4,
         dislikes: 2,
         liked: true,
@@ -35,7 +35,7 @@ const examplePosts = [
             name: 'Elliot Fu',
             avatar: 'https://react.semantic-ui.com/images/avatar/small/elliot.jpg',
         },
-        createdAt: Date.now() - parseInt(Math.random() * 3 * 3600),
+        createdAt: Date.now() - parseInt(Math.random() * 3 * 3600 * 1000),
         likes: 4,
         dislikes: 2,
         liked: false,
@@ -53,41 +53,10 @@ export default class Page extends React.PureComponent {
         return (
             <>
                 <Container>
-                    <Header loggedIn={true}/>
+                    <Header/>
                 </Container>
                 <Container style={{paddingTop: '7em'}}>
-                    <Grid>
-                        <Grid.Row>
-                            <Grid.Column>
-                                <UIHeader>Feed</UIHeader>
-                            </Grid.Column>
-                        </Grid.Row>
-                        <Grid.Row>
-                            <Grid.Column width={12}>
-                                <Posts posts={examplePosts}/>
-                            </Grid.Column>
-                            <Grid.Column width={4}>
-                                <Card>
-                                    <Card.Content>
-                                        <Card.Description>
-                                            <div>Reddit &copy; 2020. All rights reserved</div>
-                                            <List horizontal divided link size='tiny'>
-                                                <List.Item as='a' href='#'>
-                                                    Contact Us
-                                                </List.Item>
-                                                <List.Item as='a' href='#'>
-                                                    Terms and Conditions
-                                                </List.Item>
-                                                <List.Item as='a' href='#'>
-                                                    Privacy Policy
-                                                </List.Item>
-                                            </List>
-                                        </Card.Description>
-                                    </Card.Content>
-                                </Card>
-                            </Grid.Column>
-                        </Grid.Row>
-                    </Grid>
+                    {this.props.children}
                 </Container>
             </>
         );

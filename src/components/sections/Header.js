@@ -15,7 +15,7 @@ import {
 } from 'semantic-ui-react'
 import logo from '../../static/pics/logo.svg'
 
-export default class Header extends Component {
+class Header extends Component {
     render() {
         const {loggedIn, user} = this.props;
         return (
@@ -34,7 +34,8 @@ export default class Header extends Component {
                         <>
                             <Menu.Item as='a' title={'Following'}><Icon name={"feed"} size={"large"}/></Menu.Item>
                             <Menu.Item as='a' title={'Popular'}><Icon name={"chart line"} size={"large"}/></Menu.Item>
-                            <Menu.Item as='a' title={'Hot'}><Icon name={"hotjar"} size={"large"}/></Menu.Item>
+                            <Menu.Item as='a' title={'Latest Posts'}><Icon name={"newspaper"}
+                                                                           size={"large"}/></Menu.Item>
                             <Menu.Item as='a' title={'Notifications'}>
                                 <Icon name={"envelope"} size={"large"}/>
                             </Menu.Item>
@@ -46,6 +47,8 @@ export default class Header extends Component {
         )
     }
 }
+
+export default Header;
 
 class HeaderBackup extends Component {
     render() {
