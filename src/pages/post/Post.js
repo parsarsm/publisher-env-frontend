@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button, Form, Header, Icon, Segment, Select} from "semantic-ui-react";
-import TextEditor from "../../componentsV2/richTextEditor/TextEditor";
+import TextEditor from "../../components/richTextEditor/TextEditor";
 
 export default class Post extends React.Component {
 

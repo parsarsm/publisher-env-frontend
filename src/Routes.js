@@ -5,29 +5,29 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import PHeader from "./componentsV2/header/PHeader";
-import HomePage from "./pagesV2/homePage/homePage";
+import PHeader from "./components/header/PHeader";
+import HomePage from "./pages/homePage/homePage";
 import {Container} from "semantic-ui-react";
-import SignUp from "./pagesV2/signUp/SignUp";
-import Profile from "./pagesV2/profile/Profile";
-import Post from "./pagesV2/post/Post";
-import ProfileSettings from "./pagesV2/profileSettings/profileSettings";
-import Footer from "./componentsV2/footer/Footer";
+import SignUp from "./pages/signUp/SignUp";
+import Profile from "./pages/profile/Profile";
+import Post from "./pages/post/Post";
+import ProfileSettings from "./pages/profileSettings/profileSettings";
+import Footer from "./components/footer/Footer";
 
 const routes = {
     homePage: '/',
     signUp: '/signUp',
-    profile: '/profile',
+    profile: '/' +
+        '',
     post: '/post',
     profileSettings: "/profile/settings",
     postById: '/post/:postId',
     profileById: '/profile/:userId',
-}
+};
 
-export default function App() {
-
+export default function Routes() {
     return (
-        <Router>
+        <div>
             <PHeader/>
             <Container style={{marginTop: '7em'}}>
                 <Switch>
@@ -46,11 +46,9 @@ export default function App() {
                     <Route exact path={routes.profileSettings}>
                         <ProfileSettings/>
                     </Route>
-
                 </Switch>
             </Container>
             <Footer/>
-        </Router>
-
+        </div>
     );
 }

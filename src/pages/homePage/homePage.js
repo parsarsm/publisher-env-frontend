@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button, Comment, Container, Feed, Form, Grid, Header, Icon, Image, Input, Menu, Modal} from "semantic-ui-react";
-import SearchBar from "../../componentsV2/search/Search";
-import Posts from "../../componentsV2/posts/Posts";
+import SearchBar from "../../components/search/Search";
+import Posts from "../../components/posts/Posts";
 
 
 export default class HomePage extends React.Component {

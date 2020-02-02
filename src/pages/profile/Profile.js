@@ -1,9 +1,9 @@
 import React from 'react'
-import PHeader from "../../componentsV2/header/PHeader";
+import PHeader from "../../components/header/PHeader";
 import {Button, Card, Container, Feed, Grid, Header, Icon, Image, Input, Menu, Table} from "semantic-ui-react";
 import {Tab} from 'semantic-ui-react'
 
-import SearchBar from "../../componentsV2/search/Search";
+import SearchBar from "../../components/search/Search";
 
 
 export default class Profile extends React.Component {
