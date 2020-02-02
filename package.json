@@ -13,6 +13,7 @@
     "jodit-react": "^1.0.37",
     "loadash": "^1.0.0",
     "lodash": "^4.17.15",
+    "node-time-ago": "^1.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-draft-wysiwyg": "^1.14.4",

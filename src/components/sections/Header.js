@@ -5,47 +5,49 @@ import {
     Dropdown,
     Form,
     Grid,
+    Icon,
     Image,
+    Input,
     Menu,
     Message,
     Popup,
-    Segment,
-    Header,
-    Icon
+    Segment
 } from 'semantic-ui-react'
 import logo from '../../static/pics/logo.svg'
 
-export default class PHeader extends Component {
-    state = {
-        isLoggedIn: false,
-        notification: {
-            newFollowers: [
-                {
-                    id: 1,
-                    name: 'Payam Mohammadi'
-                },
-                {
-                    id: 2,
-                    name: 'Aryan Sadeghi'
-                }
-            ],
-            newComments: [
-                {
-                    postId: 1,
-                    postTitle: 'Some post title',
-                    usersNames: ['Akbar Ganji', 'Imam Khomeyni'] // users who commented (new) under this post
-                },
-                {
-                    postId: 2,
-                    postTitle: 'Some other post title !',
-                    usersNames: ['Trump', 'Jeremy Clarkson', 'James May', 'Richard Hammond'] // users who commented (new) under this post
-                }
-            ]
-        }
-    };
+export default class Header extends Component {
+    render() {
+        const {loggedIn, user} = this.props;
+        return (
+            <Menu fixed='top' inverted fluid={true}>
+                <Container>
+                    <Menu.Item>
+                        <Icon name={"reddit alien"} size={"big"}/> Reddit
+                    </Menu.Item>
+                    <Menu.Item style={{flexGrow: 1}}>
+                        <Input className='icon' fluid={true} icon='search' inverted size={"tiny"}
+                               placeholder='Search...'/>
+                    </Menu.Item>
+                    {!loggedIn ? <>
+                            <Menu.Item as='a'>Login</Menu.Item>
+                            <Menu.Item as='a'>Signup</Menu.Item></> :
+                        <>
+                            <Menu.Item as='a' title={'Following'}><Icon name={"feed"} size={"large"}/></Menu.Item>
+                            <Menu.Item as='a' title={'Popular'}><Icon name={"chart line"} size={"large"}/></Menu.Item>
+                            <Menu.Item as='a' title={'Hot'}><Icon name={"hotjar"} size={"large"}/></Menu.Item>
+                            <Menu.Item as='a' title={'Notifications'}>
+                                <Icon name={"envelope"} size={"large"}/>
+                            </Menu.Item>
+                            <Menu.Item as='a' title={'Profile'}><Icon name={"user"} size={"large"}/></Menu.Item>
+                        </>
+                    }
+                </Container>
+            </Menu>
+        )
+    }
+}
 
-    handleItemClick = (e, {name}) => this.setState({activeItem: name});
-
+class HeaderBackup extends Component {
     render() {
         return (
             <Menu fixed='top' inverted>
