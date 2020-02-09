@@ -4,6 +4,7 @@ const endpoints = {
     AUTH_TOKEN: '/api/token/',
     REFRESH_TOKEN: '/api/token/refresh/',
     POSTS: '/api/posts/',
+    USER: '/api/user/',
 };
 
 export default class Api {
@@ -13,7 +14,8 @@ export default class Api {
             refreshTokenTimeout: 5000,
             accessTokenTimeout: 5000,
         };
-        this._auth = window.localStorage.getItem('JWT_KEYS') || null;
+        this._auth = window.localStorage.getItem('JWT_KEYS');
+        this._auth = this._auth === 'undefined' ? null : this._auth;
     }
 
     setAuthentication(tokens) {
@@ -46,14 +48,14 @@ export default class Api {
     }
 
     _isAccessTokenExpired() {
-        if (this._auth.data.access && this._auth.data.access.exp) {
+        if (this._auth && this._auth.data.access.exp) {
             return 1000 * this._auth.data.access.exp - (new Date()).getTime() < this._config.accessTokenTimeout;
         }
         return true;
     }
 
     _isRefreshTokenExpired() {
-        if (this._auth.data.refresh && this._auth.data.refresh.exp) {
+        if (this._auth && this._auth.data.refresh.exp) {
             return 1000 * this._auth.data.refresh.exp - (new Date()).getTime() < this._config.refreshTokenTimeout;
         }
         return true;
@@ -122,6 +124,7 @@ export default class Api {
         this.setAuthentication(auth.response);
         return auth;
     }
+
 
     async logout() {
         this.setAuthentication(null);
