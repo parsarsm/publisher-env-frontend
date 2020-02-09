@@ -4,6 +4,7 @@ import Posts from "../components/posts/Posts";
 import {Button, Icon} from "semantic-ui-react";
 import {Link} from "react-router-dom";
 import {routes} from "../config/routes";
+import PostModal from "../components/postModal/PostModal";
 
 const examplePosts = [
     {
@@ -51,7 +52,8 @@ const examplePosts = [
 export default class FeedPage extends React.PureComponent {
     render() {
         const postButton = (
-            <Link to={routes.POST_ADD}><Button icon size={"tiny"}><Icon name={"compose"}/></Button></Link>);
+            <PostModal trigger={<Button icon size={"tiny"}><Icon name={"compose"}/></Button>}/>
+            );
         return (
             <SidedContent title='Feed' actions={postButton}>
                 <Posts posts={examplePosts}/>
