@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
 import SidedContent from "../components/containers/SidedContent";
 import Posts from "../components/posts/Posts";
+
 
 const examplePosts = [
     {
@@ -45,10 +46,10 @@ const examplePosts = [
     },
 ];
 
-export default class HotPostsPage extends React.PureComponent {
+export default class LatestPostsPage extends React.PureComponent {
     render() {
         return (
-            <SidedContent title={"Hot Posts"}>
+            <SidedContent title={"Latest Posts"}>
                 <Posts posts={examplePosts}/>
             </SidedContent>
         )

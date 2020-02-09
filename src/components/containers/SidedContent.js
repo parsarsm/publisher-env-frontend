@@ -4,12 +4,15 @@ import Footer from "../sections/Footer";
 
 export default class SidedContent extends React.PureComponent {
     render() {
-        const {title, sidebar, children} = this.props;
+        const {title, actions, sidebar, children} = this.props;
         return (
             <Grid>
-                <Grid.Row>
-                    <Grid.Column>
+                <Grid.Row verticalAlign={'middle'}>
+                    <Grid.Column width={8}>
                         <UIHeader>{title}</UIHeader>
+                    </Grid.Column>
+                    <Grid.Column width={4} textAlign='right'>
+                        {actions}
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
