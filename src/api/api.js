@@ -1,9 +1,11 @@
 import jwtDecode from 'jwt-decode';
+import {encodeQueryString} from "../helpers/url";
 
 const endpoints = {
     AUTH_TOKEN: '/api/token/',
     REFRESH_TOKEN: '/api/token/refresh/',
     POSTS: '/api/posts/',
+    LATEST_POSTS: '/api/posts/latest',
     USER: '/api/user/',
 };
 
@@ -14,8 +16,9 @@ export default class Api {
             refreshTokenTimeout: 5000,
             accessTokenTimeout: 5000,
         };
-        this._auth = window.localStorage.getItem('JWT_KEYS');
-        this._auth = this._auth === 'undefined' ? null : JSON.parse(this._auth);
+        const storeAuth = window.localStorage.getItem('JWT_KEYS');
+        const auth = storeAuth === 'undefined' ? null : JSON.parse(storeAuth);
+        this.setAuthentication(auth);
     }
 
     setAuthentication(tokens) {
@@ -131,9 +134,10 @@ export default class Api {
         this.setAuthentication(null);
     }
 
-    async listPosts() {
+    async getLatestPosts(from = null, to = null) {
+        const queryString = {...(from ? {_from: from} : {}), ...(to ? {_to: to} : {})};
         return this._fetch(
-            endpoints.POSTS,
+            `${endpoints.LATEST_POSTS}${encodeQueryString(queryString)}`,
             'GET'
         );
     }
