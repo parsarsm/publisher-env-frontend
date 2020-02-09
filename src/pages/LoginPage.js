@@ -9,11 +9,12 @@ import FormComponent from "../components/general/FormComponent";
 class LoginPage extends FormComponent {
     login() {
         const {username, password} = this.state.form;
-        this.props.login(username, password);
+        this.props.login(username || '', password || '');
     }
 
     render() {
         return (
+
             <Grid textAlign='center' style={{height: '100vh'}}>
                 <Grid.Column style={{maxWidth: 450}}>
                     <Header as='h2' color='grey' textAlign='center'>
@@ -21,6 +22,11 @@ class LoginPage extends FormComponent {
                     </Header>
                     <Form size='large'>
                         <Segment stacked>
+                            {this.props.errMessage ? (
+                                <Message negative>
+                                    <p>{this.props.errMessage}</p>
+                                </Message>
+                            ) : ''}
                             <Form.Input fluid icon='user' iconPosition='left' placeholder='Username'
                                         name={'username'} onChange={this.onFormInput('username')}/>
                             <Form.Input fluid
@@ -31,7 +37,8 @@ class LoginPage extends FormComponent {
                                         placeholder='Password'
                                         onChange={this.onFormInput('password')}
                             />
-                            <Button color='black' fluid size='large' onClick={() => this.login()}>
+                            <Button color='black' fluid size='large' onClick={() => this.login()}
+                                    loading={this.props.loading}>
                                 Login
                             </Button>
                         </Segment>
@@ -41,12 +48,16 @@ class LoginPage extends FormComponent {
                     </Message>
                 </Grid.Column>
             </Grid>
+
         )
     }
 }
 
 export default connect(
-    null,
+    (state) => ({
+        loading: state.user.loading,
+        errMessage: state.user.errMessage,
+    }),
     (dispatch) => ({
         login: (username, password) => dispatch(loginAction(username, password))
     })
