@@ -15,7 +15,7 @@ export default class Api {
             accessTokenTimeout: 5000,
         };
         this._auth = window.localStorage.getItem('JWT_KEYS');
-        this._auth = this._auth === 'undefined' ? null : this._auth;
+        this._auth = this._auth === 'undefined' ? null : JSON.parse(this._auth);
     }
 
     setAuthentication(tokens) {
@@ -86,6 +86,7 @@ export default class Api {
                 return {error: jsonResponse, status: response.status};
             }
         } catch (e) {
+            console.log(e);
             return {error: e};
         }
     }
