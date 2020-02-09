@@ -1,3 +1,3 @@
-import * as FakeApi from './fakeApi';
+import Api from './api';
 
-export default FakeApi;
+export default new Api('http://localhost:8000');

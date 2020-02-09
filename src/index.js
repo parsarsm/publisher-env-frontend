@@ -9,7 +9,7 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 
 import Routes from './Routes';
 import createRootReducer from './reducers';
-
+import API from "./api/api";
 
 export const history = createHashHistory();
 
@@ -24,6 +24,7 @@ const store = createStore(
 );
 
 window.fuckingStore = store;
+window.api = new API('http://localhost:8000');
 
 ReactDOM.render(
     <Provider store={store}>
