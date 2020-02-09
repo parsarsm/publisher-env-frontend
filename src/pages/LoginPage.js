@@ -24,7 +24,7 @@ class LoginPage extends FormComponent {
                         <Segment stacked>
                             {this.props.failedLogin ? (
                                 <Message negative>
-                                    <p>{this.props.errMessage}</p>
+                                    <p>{this.props.details}</p>
                                 </Message>
                             ) : ''}
 
@@ -57,7 +57,7 @@ class LoginPage extends FormComponent {
 export default connect(
     (state) => ({
         loading: state.user.loading,
-        errMessage: state.user.errMessage,
+        errMessage: state.user.details,
         failedLogin: state.user.failedLogin,
 
     }),

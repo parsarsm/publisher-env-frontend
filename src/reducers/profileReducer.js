@@ -12,7 +12,7 @@ export default function profileReducer(prevState = initialState, action) {
         case profileActionTypes.UPDATE_PROFILE_SUCCESS:
             return {...prevState, loading: false, successfulUpdate: true};
         case profileActionTypes.UPDATE_PROFILE_FAILED:
-            return {...prevState, loading: false, failedUpdate: true, errMessage: action.payload.message};
+            return {...prevState, loading: false, failedUpdate: true, detail: action.payload.message};
     }
 
     return prevState;

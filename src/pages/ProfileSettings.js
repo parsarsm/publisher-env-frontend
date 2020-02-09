@@ -63,7 +63,7 @@ class ProfileSettings extends FormComponent {
                         ) : ''}
                         {this.props.failedUpdate ? (
                             <Message negative>
-                                <p>{this.props.errMessage}</p>
+                                <p>{this.props.details}</p>
                             </Message>
                         ) : ''}
                         <Segment>
@@ -179,7 +179,7 @@ class ProfileSettings extends FormComponent {
 export default connect(
     (state) => ({
         loading: state.profile.loading,
-        errMessage: state.profile.errMessage,
+        errMessage: state.profile.details,
         failedUpdate: state.profile.failedUpdate,
         successfulUpdate: state.profile.successfulUpdate
 

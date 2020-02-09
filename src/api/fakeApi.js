@@ -4,8 +4,16 @@ export async function updateProfile(username, password, email, firstName, lastNa
         success: null,
         error: null
     }
-
 }
+
+export async function resetPass(username) {
+    await new Promise(res => setTimeout(res, 2000));
+    return {
+        success: null,
+        error: null
+    }
+}
+
 
 export async function login(username, password) {
     await new Promise(res => setTimeout(res, 2000));
@@ -22,7 +30,7 @@ export async function login(username, password) {
         return {
             success: null,
             error: {
-                message: 'Username or password is not correct'
+                details: 'Username or password is not correct'
             }
         }
     }
