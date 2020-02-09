@@ -15,6 +15,7 @@ class FormComponent extends React.PureComponent {
             });
         }
     }
+
 }
 
 export default FormComponent;

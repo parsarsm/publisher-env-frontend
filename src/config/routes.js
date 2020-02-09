@@ -14,4 +14,6 @@ export const routes = {
     CHANNEL_EDIT: '/channels/edit/:id',
     CHANNEL_MEMBERS: '/channels/members/:id',
     SEARCH: '/search/:query',
+    PROFILE_SETTINGS: '/profile/settings'
+
 };

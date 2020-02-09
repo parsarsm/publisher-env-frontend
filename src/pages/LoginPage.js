@@ -22,11 +22,12 @@ class LoginPage extends FormComponent {
                     </Header>
                     <Form size='large'>
                         <Segment stacked>
-                            {this.props.errMessage ? (
+                            {this.props.failedLogin ? (
                                 <Message negative>
                                     <p>{this.props.errMessage}</p>
                                 </Message>
                             ) : ''}
+
                             <Form.Input fluid icon='user' iconPosition='left' placeholder='Username'
                                         name={'username'} onChange={this.onFormInput('username')}/>
                             <Form.Input fluid
@@ -57,6 +58,8 @@ export default connect(
     (state) => ({
         loading: state.user.loading,
         errMessage: state.user.errMessage,
+        failedLogin: state.user.failedLogin,
+
     }),
     (dispatch) => ({
         login: (username, password) => dispatch(loginAction(username, password))

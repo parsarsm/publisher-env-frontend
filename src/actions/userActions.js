@@ -18,8 +18,6 @@ export function loginAction(username, password) {
             dispatch({type: userActionTypes.LOGIN_SUCCESS, payload: {tokenValues: response}});
             dispatch(push(routes.FEED))
         }
-
-
     }
 }
 
