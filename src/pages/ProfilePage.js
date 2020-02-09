@@ -3,6 +3,7 @@ import {Button, Form, Grid, Header, Segment} from "semantic-ui-react";
 import {connect} from "react-redux";
 import FormComponent from "../components/general/FormComponent";
 import {signupAction} from "../actions/userActions";
+import {withRouter} from 'react-router-dom'
 
 class SignUpPage extends FormComponent {
     state = {};
@@ -47,9 +48,10 @@ class SignUpPage extends FormComponent {
     }
 }
 
-export default connect(
+
+export default withRouter(connect(
     null,
     (dispatch) => ({
         signup: (signupData) => dispatch(signupAction(signupData))
     })
-)(SignUpPage);
+)(SignUpPage));

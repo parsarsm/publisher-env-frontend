@@ -11,12 +11,16 @@ import LatestPostsPage from "./pages/LatestPostsPage";
 import ProfilePage from "./pages/ProfilePage";
 import EditProfilePage from "./pages/EditProfilePage";
 import PostPage from "./pages/PostPage";
+import Profile from "./pages/profile";
 
 
 export default function Routes() {
     return (
         <Page>
             <Switch>
+                <Route exact path={'/profile'}>
+                    <Profile/>
+                </Route>
                 <Route exact path={routes.FEED}>
                     <FeedPage/>
                 </Route>
