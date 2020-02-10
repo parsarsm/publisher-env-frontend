@@ -4,6 +4,7 @@ export const postActionTypes = {
     UPDATE_POSTS: 'UPDATE_POSTS',
     LIKE_POST: 'LIKE_POST',
     DISLIKE_POST: 'DISLIKE_POST',
+    REMOVE_POST: 'REMOVE_POST',
 };
 
 export function updatePosts(posts) {
@@ -16,13 +17,13 @@ export function updatePosts(posts) {
 
 export function likePostAction(id, active) {
     return async (dispatch) => {
-        let error;
+        let result;
         if (active) {
-            let {error} = await Api.removeLike(id);
+            result = await Api.removeLike(id);
         } else {
-            let {error} = await Api.like(id);
+            result = await Api.like(id);
         }
-        if (!error) {
+        if (!result.error) {
             dispatch({
                 type: postActionTypes.LIKE_POST,
                 payload: {id: id, active}
@@ -33,17 +34,39 @@ export function likePostAction(id, active) {
 
 export function dislikePostAction(id, active) {
     return async (dispatch) => {
-        let error;
+        let result;
         if (active) {
-            let {error} = await Api.removeDislike(id);
+            result = await Api.removeDislike(id);
         } else {
-            let {error} = await Api.dislike(id);
+            result = await Api.dislike(id);
         }
-        if (!error) {
+        if (!result.error) {
             dispatch({
                 type: postActionTypes.DISLIKE_POST,
                 payload: {id: id, active}
             });
+        }
+    }
+}
+
+export function deletePostAction(id) {
+    return async (dispatch) => {
+        let {error} = await Api.removePost(id);
+        if (!error) {
+            dispatch({
+                type: postActionTypes.REMOVE_POST,
+                payload: {id}
+            });
+        }
+    }
+}
+
+
+export function loadPostAction(id) {
+    return async (dispatch) => {
+        const {response, error} = await Api.getPost(id);
+        if (response) {
+            dispatch(updatePosts(response));
         }
     }
 }

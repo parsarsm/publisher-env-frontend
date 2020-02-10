@@ -1,53 +1,69 @@
 import React from "react";
-import {Button, Form, Grid, Header, Message, Segment} from "semantic-ui-react";
 import {connect} from "react-redux";
-import {Link} from "react-router-dom";
-import {loginAction} from "../actions/userActions";
-import {routes} from "../config/routes";
 import FormComponent from "../components/general/FormComponent";
+import {withRouter} from "react-router";
+import {loadPostAction} from "../actions/postActions";
+import {Segment} from "semantic-ui-react";
+import Post from "../components/posts/Post";
 
-class LoginPage extends FormComponent {
-    login() {
-        const {username, password} = this.state.form;
-        this.props.login(username, password);
+class PostPage extends FormComponent {
+    state = {
+        lastId: 0,
+    };
+
+    componentDidMount() {
+        this.init();
+    }
+
+    init() {
+        const {id} = this.props.match.params;
+        if (this.state.lastId === id) {
+            return;
+        }
+
+        this.setState({lastId: id});
+
+        this.props.loadPost(id);
     }
 
     render() {
+        this.init();
+        const {id} = this.props.match.params;
+        const post = this._buildPostTree(id);
+
         return (
-            <Grid textAlign='center' style={{height: '100vh'}}>
-                <Grid.Column style={{maxWidth: 450}}>
-                    <Header as='h2' color='grey' textAlign='center'>
-                        Log-in to your account
-                    </Header>
-                    <Form size='large'>
-                        <Segment stacked>
-                            <Form.Input fluid icon='user' iconPosition='left' placeholder='Username'
-                                        name={'username'} onChange={this.onFormInput('username')}/>
-                            <Form.Input fluid
-                                        icon='lock'
-                                        iconPosition='left'
-                                        type='password'
-                                        name={'password'}
-                                        placeholder='Password'
-                                        onChange={this.onFormInput('password')}
-                            />
-                            <Button color='black' fluid size='large' onClick={() => this.login()}>
-                                Login
-                            </Button>
-                        </Segment>
-                    </Form>
-                    <Message>
-                        New to us? <Link to={routes.SIGN_UP}>Sign Up</Link>
-                    </Message>
-                </Grid.Column>
-            </Grid>
+            <div>
+                <Segment>
+                    {post.id && <Post post={post} Element={Post}/>}
+                </Segment>
+            </div>
         )
+    }
+
+    _buildPostTree(id) {
+        const children = {};
+        for (const postId of Object.keys(this.props.posts)) {
+            const post = this.props.posts[postId];
+            if (!Array.isArray(children[post.parent])) {
+                children[post.parent] = [];
+            }
+
+            children[post.parent].push(post);
+        }
+
+        return this._getWithChildren(id, children);
+    }
+
+    _getWithChildren(id, children) {
+        return {...this.props.posts[id], children: (children[id] || []).map(c => this._getWithChildren(c.id, children))}
     }
 }
 
-export default connect(
-    null,
+export default withRouter(connect(
+    (state) => ({
+        posts: state.posts || [],
+    }),
     (dispatch) => ({
-        login: (username, password) => dispatch(loginAction(username, password))
+        loadPost: (id) => dispatch(loadPostAction(id))
     })
-)(LoginPage);
+)(PostPage));

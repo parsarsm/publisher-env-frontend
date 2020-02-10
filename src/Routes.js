@@ -25,6 +25,9 @@ export default function Routes() {
                 <Route exact path={routes.PROFILE_SETTINGS}>
                     <ProfileSettings/>
                 </Route>
+                <Route exact path={routes.POST_VIEW}>
+                    <PostPage/>
+                </Route>
                 <Route exact path={routes.FEED}>
                     <FeedPage/>
                 </Route>

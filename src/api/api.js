@@ -180,6 +180,13 @@ export default class Api {
         );
     }
 
+    async getPost(id) {
+        return this._fetch(
+            `${endpoints.POSTS}${id}/`,
+            'GET'
+        );
+    }
+
     async removePost(id) {
         return this._fetch(
             `${endpoints.POSTS}${id}/`,

@@ -31,6 +31,10 @@ export default function userReducer(prevState = initialState, action) {
                     }
                 }
             };
+        case postActionTypes.REMOVE_POST:
+            const newStateAfterRemovePost = {...prevState};
+            delete newStateAfterRemovePost[action.payload.id];
+            return newStateAfterRemovePost;
     }
 
     return prevState;
