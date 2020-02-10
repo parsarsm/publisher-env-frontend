@@ -1,20 +1,20 @@
-import {Button, Segment} from "semantic-ui-react";
+import {Button, Message, Segment} from "semantic-ui-react";
 import React from "react";
 import Post from "./Post";
 
 
 export default class Posts extends React.PureComponent {
     render() {
-        const {posts, end, loading, getPosts} = this.props;
+        const {posts, end, loading} = this.props;
         return (
             <>
-                {posts.map(post => (
+                {posts && posts.length ? posts.map(post => (
                     <Segment key={post.id}>
                         <Post post={post}/>
                     </Segment>
-                ))}
+                )) : <Message floating content={"Nothing to show"}/>}
                 {end ? '' : (
-                    <Button basic loading={loading} attached='bottom' onClick={getPosts}>Load More</Button>
+                    <Button basic loading={loading} attached='bottom'>Load More</Button>
                 )}
             </>
         );

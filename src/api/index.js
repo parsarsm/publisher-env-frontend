@@ -1,4 +1,8 @@
 import Api from './api';
 
-export default new Api('http://192.168.1.4:8001');
+const baseUrl = 'http://localhost:8001';
+export const serverUrl = (relativeUrl) => {
+    return `${baseUrl}${relativeUrl}`;
+};
+export default new Api(baseUrl);
 

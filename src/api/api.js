@@ -222,4 +222,18 @@ export default class Api {
             'GET'
         )
     }
+
+    async signup(username, email, firstName, lastName, password) {
+        return this._fetch(
+            endpoints.USER,
+            'POST',
+            {
+                username,
+                email,
+                first_name: firstName,
+                last_name: lastName,
+                password
+            }
+        )
+    }
 }

@@ -1,6 +1,7 @@
 import Api from '../api';
 import {push} from 'connected-react-router'
 import {routes} from "../config/routes";
+import {updatePosts} from "./postActions";
 
 export const latestPostsActionTypes = {
     LATEST_POSTS_START: 'LATEST_POSTS_START',
@@ -8,17 +9,15 @@ export const latestPostsActionTypes = {
     LATEST_POSTS_END: 'LATEST_POSTS_END',
 };
 
-export function latestPostsAction(lastId) {
+export function latestPostsAction(lastId = null) {
     return async (dispatch) => {
         dispatch({type: latestPostsActionTypes.LATEST_POSTS_START});
         const {response, error} = await Api.getLatestPosts(null, lastId);
-        // if (error) {
-        //     dispatch({type: latestPostsActionTypes.LATEST_POSTS_END, payload: {message: error.detail || "Login failed."}});
-        // console.log(response, error, 'sd');
-        if (response.length === 0) {
+        if (response && response.length) {
+            dispatch(updatePosts(response));
+            dispatch({type: latestPostsActionTypes.LATEST_POSTS_SUCCESS, payload: {newPosts: response.map(post => post.id)}});
+        } else if ((response && !response.length)) {
             dispatch({type: latestPostsActionTypes.LATEST_POSTS_END});
-        } else {
-            dispatch({type: latestPostsActionTypes.LATEST_POSTS_SUCCESS, payload: {newPosts: response}});
         }
     }
 }
