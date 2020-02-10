@@ -5,12 +5,18 @@ import {Link} from "react-router-dom";
 import {loginAction} from "../actions/userActions";
 import {routes} from "../config/routes";
 import FormComponent from "../components/general/FormComponent";
+// import GoogleLogin from 'react-google-login';
 
 class LoginPage extends FormComponent {
     login() {
         const {username, password} = this.state.form;
         this.props.login(username || '', password || '');
     }
+
+    //
+    // responseGoogle(response) {
+    //     console.log(response);
+    // }
 
     render() {
         return (
@@ -24,7 +30,7 @@ class LoginPage extends FormComponent {
                         <Segment stacked>
                             {this.props.failedLogin ? (
                                 <Message negative>
-                                    <p>{this.props.details}</p>
+                                    <p>{this.props.detail}</p>
                                 </Message>
                             ) : ''}
 
@@ -47,6 +53,13 @@ class LoginPage extends FormComponent {
                     <Message>
                         New to us? <Link to={routes.USER_SIGN_UP}>Sign Up</Link>
                     </Message>
+
+                    {/*<GoogleLogin*/}
+                    {/*    clientId="122588552894-qegdkunotqv70434ehld75oq70j1ko4g.apps.googleusercontent.com"*/}
+                    {/*    buttonText="LOGIN WITH GOOGLE"*/}
+                    {/*    onSuccess={this.responseGoogle}*/}
+                    {/*    onFailure={this.responseGoogle}*/}
+                    {/*/>*/}
                 </Grid.Column>
             </Grid>
 
@@ -57,7 +70,7 @@ class LoginPage extends FormComponent {
 export default connect(
     (state) => ({
         loading: state.user.loading,
-        errMessage: state.user.details,
+        detail: state.user.detail,
         failedLogin: state.user.failedLogin,
 
     }),

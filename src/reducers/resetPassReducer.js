@@ -11,7 +11,7 @@ export default function resetPassReducer(prevState = initialState, action) {
         case resetPassActionTypes.RESET_PASS_START:
             return {...prevState, loading: true};
         case resetPassActionTypes.RESET_PASS_SUCCESS:
-            return {...prevState, loading: false, successfulResetPass: true};
+                return {...prevState, loading: false, successfulResetPass: true};
         case resetPassActionTypes.RESET_PASS_FAILED:
             return {...prevState, loading: false, failedResetPass: true, detail: action.payload.message};
     }

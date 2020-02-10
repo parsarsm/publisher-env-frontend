@@ -1,6 +1,9 @@
 import React from "react";
 import SidedContent from "../components/containers/SidedContent";
 import Posts from "../components/posts/Posts";
+import {connect} from "react-redux";
+import {loginAction} from "../actions/userActions";
+import {latestPostsAction} from "../actions/latestPostsActions";
 
 
 const examplePosts = [
@@ -46,12 +49,35 @@ const examplePosts = [
     },
 ];
 
-export default class LatestPostsPage extends React.PureComponent {
+class LatestPostsPage extends React.PureComponent {
+
+    getLatestPosts() {
+        const lastId = this.props.posts ? this.props.posts[this.props.posts.length - 1].id : null;
+        this.props.getLatestPosts(lastId);
+    }
+
+
+    componentDidMount() {
+        this.getLatestPosts();
+    }
+
     render() {
         return (
             <SidedContent title={"Latest Posts"}>
-                <Posts posts={examplePosts}/>
+                <Posts posts={this.props.posts} loading={this.props.loading} end={this.props.end}/>
             </SidedContent>
         )
     }
 }
+
+export default connect(
+    (state) => ({
+        loading: state.latestPosts.loading,
+        posts: state.latestPosts.posts,
+        end: state.latestPosts.end,
+
+    }),
+    (dispatch) => ({
+        getLatestPosts: (lastId) => dispatch(latestPostsAction(lastId))
+    })
+)(LatestPostsPage);
