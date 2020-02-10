@@ -5,6 +5,7 @@ import profileReducer from "./profileReducer";
 import resetPassReducer from "./resetPassReducer";
 import latestPostsReducer from "./latestPostsReducer";
 import postsReducer from "./postsReducer";
+import searchReducer from "./searchReducer";
 
 export default (history) => combineReducers({
     router: connectRouter(history),
@@ -13,4 +14,5 @@ export default (history) => combineReducers({
     resetPass: resetPassReducer,
     latestPosts: latestPostsReducer,
     posts: postsReducer,
+    search: searchReducer,
 });
