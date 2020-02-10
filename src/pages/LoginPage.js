@@ -1,11 +1,11 @@
 import React from "react";
-import {Button, Form, Grid, Header, Message, Segment} from "semantic-ui-react";
+import {Button, Form, Grid, Header, Icon, Message, Segment} from "semantic-ui-react";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {loginAction} from "../actions/userActions";
 import {routes} from "../config/routes";
 import FormComponent from "../components/general/FormComponent";
-// import GoogleLogin from 'react-google-login';
+import GoogleLogin from 'react-google-login';
 
 class LoginPage extends FormComponent {
     login() {
@@ -13,10 +13,10 @@ class LoginPage extends FormComponent {
         this.props.login(username || '', password || '');
     }
 
-    //
-    // responseGoogle(response) {
-    //     console.log(response);
-    // }
+
+    responseGoogle(response) {
+        console.log(response);
+    }
 
     render() {
         return (
@@ -28,9 +28,9 @@ class LoginPage extends FormComponent {
                     </Header>
                     <Form size='large'>
                         <Segment stacked>
-                            {this.props.failedLogin ? (
+                            {this.props.errMessage ? (
                                 <Message negative>
-                                    <p>{this.props.detail}</p>
+                                    <p>{this.props.errMessage}</p>
                                 </Message>
                             ) : ''}
 
@@ -54,12 +54,22 @@ class LoginPage extends FormComponent {
                         New to us? <Link to={routes.USER_SIGN_UP}>Sign Up</Link>
                     </Message>
 
-                    {/*<GoogleLogin*/}
-                    {/*    clientId="122588552894-qegdkunotqv70434ehld75oq70j1ko4g.apps.googleusercontent.com"*/}
-                    {/*    buttonText="LOGIN WITH GOOGLE"*/}
-                    {/*    onSuccess={this.responseGoogle}*/}
-                    {/*    onFailure={this.responseGoogle}*/}
-                    {/*/>*/}
+                    <Message>
+                        <GoogleLogin
+                            clientId="122588552894-qegdkunotqv70434ehld75oq70j1ko4g.apps.googleusercontent.com"
+                            render={renderProps => (
+                                <Button color='google plus' onClick={renderProps.onClick}
+                                        disabled={renderProps.disabled}>
+                                    <Icon name='google'/> Sign in with Google
+                                </Button>
+                            )}
+                            buttonText="Login"
+                            onSuccess={this.responseGoogle}
+                            onFailure={this.responseGoogle}
+                            // cookiePolicy={'single_host_origin'}
+                        />,
+                    </Message>
+
                 </Grid.Column>
             </Grid>
 
@@ -70,7 +80,7 @@ class LoginPage extends FormComponent {
 export default connect(
     (state) => ({
         loading: state.user.loading,
-        detail: state.user.detail,
+        errMessage: state.user.message,
         failedLogin: state.user.failedLogin,
 
     }),

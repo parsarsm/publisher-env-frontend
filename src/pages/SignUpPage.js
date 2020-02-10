@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Form, Grid, Header, Segment} from "semantic-ui-react";
+import {Button, Form, Grid, Header, Message, Segment} from "semantic-ui-react";
 import {connect} from "react-redux";
 import FormComponent from "../components/general/FormComponent";
 import {signupAction} from "../actions/userActions";
@@ -7,9 +7,9 @@ import {signupAction} from "../actions/userActions";
 class SignUpPage extends FormComponent {
     state = {};
 
-    login() {
-        const {username, password, email, fullName} = this.state.form;
-        this.props.signup({username, password, email, fullName});
+    signup() {
+        const {username, password, email, firstName, lastName} = this.state.form;
+        this.props.signup({username, password, email, firstName, lastName});
     }
 
     render() {
@@ -21,6 +21,11 @@ class SignUpPage extends FormComponent {
                     </Header>
                     <Form size='large'>
                         <Segment stacked>
+                            {this.props.errMessage ? (
+                                <Message negative>
+                                    <p>{this.props.errMessage}</p>
+                                </Message>
+                            ) : ''}
                             <Form.Input fluid icon='user' name={'username'} iconPosition='left' placeholder='Username'
                                         onChange={this.onFormInput('username')}/>
                             <Form.Input
@@ -34,9 +39,12 @@ class SignUpPage extends FormComponent {
                             />
                             <Form.Input fluid icon='mail' name={'email'} iconPosition='left' placeholder='Email'
                                         onChange={this.onFormInput('email')} type={"email"}/>
-                            <Form.Input fluid name={'fullName'} placeholder='Full Name'
-                                        onChange={this.onFormInput('fullName')}/>
-                            <Button color='black' fluid size='large' onClick={() => this.signup()}>
+                            <Form.Input fluid name={'firstName'} placeholder='First Name'
+                                        onChange={this.onFormInput('firstName')} icon={'first_name'}/>
+                            <Form.Input fluid name={'lastName'} placeholder='Last Name'
+                                        onChange={this.onFormInput('lastName')} icon={'last_name'}/>
+
+                            <Button color='black' fluid size='large' loading={this.props.loading}  onClick={() => this.signup()}>
                                 Sign up
                             </Button>
                         </Segment>
@@ -48,7 +56,11 @@ class SignUpPage extends FormComponent {
 }
 
 export default connect(
-    null,
+    (state) => ({
+        loading: state.user.loading,
+        errMessage: state.user.message,
+
+    }),
     (dispatch) => ({
         signup: (signupData) => dispatch(signupAction(signupData))
     })

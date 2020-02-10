@@ -1,6 +1,6 @@
 import Api from './api';
 
-const baseUrl = 'http://localhost:8001';
+const baseUrl = '192.168.43.218:8001';
 export const serverUrl = (relativeUrl) => {
     return `${baseUrl}${relativeUrl}`;
 };

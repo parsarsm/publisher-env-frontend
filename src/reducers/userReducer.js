@@ -16,6 +16,13 @@ export default function userReducer(prevState = initialState, action) {
             return {...prevState, loading: false, loggedIn: true, user: {...action.payload}, ready: true};
         case userActionTypes.NO_PROFILE:
             return {...prevState, loading: false, loggedIn: false, user: {}, ready: true};
+        case userActionTypes.SIGN_UP_START:
+            return {...prevState, loading: true};
+        case userActionTypes.SIGN_UP_FAILED:
+            return {...prevState, loading: false, detail: action.payload.message};
+        case userActionTypes.SIGN_UP_SUCCESS:
+            return {...prevState, loading: false};
+
     }
 
     return prevState;

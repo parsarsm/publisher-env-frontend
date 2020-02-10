@@ -8,6 +8,9 @@ export const userActionTypes = {
     LOGIN_FAILED: 'LOGIN_FAILED',
     PROFILE_LOADED: 'PROFILE_LOADED',
     NO_PROFILE: 'NO_PROFILE',
+    SIGN_UP_START: 'SIGN_UP_START',
+    SIGN_UP_SUCCESS: 'SIGN_UP_SUCCESS',
+    SIGN_UP_FAILED: 'SIGN_UP_FAILED'
 };
 
 export function getMyProfileAction() {
@@ -37,6 +40,17 @@ export function loginAction(username, password) {
 
 export function signupAction(signupData) {
     return async (dispatch) => {
+        dispatch({type: userActionTypes.SIGN_UP_START});
+        const {username, password, email, firstName, lastName} = signupData;
 
+        console.log('sdfsdf');
+        const {response, error} = await Api.signup(username, password, email, firstName, lastName);
+        if (error) {
+            console.log(error);
+            dispatch({type: userActionTypes.SIGN_UP_FAILED, payload: {message: error.detail || "Sign Up failed."}});
+        } else {
+            dispatch({type: userActionTypes.SIGN_UP_SUCCESS});
+            dispatch(push(routes.FEED))
+        }
     }
 }
