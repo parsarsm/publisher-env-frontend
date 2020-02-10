@@ -43,8 +43,7 @@ export function signupAction(signupData) {
         dispatch({type: userActionTypes.SIGN_UP_START});
         const {username, password, email, firstName, lastName} = signupData;
 
-        console.log('sdfsdf');
-        const {response, error} = await Api.signup(username, password, email, firstName, lastName);
+        const {response, error} = await Api.signup(username, email, firstName, lastName, password);
         if (error) {
             console.log(error);
             dispatch({type: userActionTypes.SIGN_UP_FAILED, payload: {message: error.detail || "Sign Up failed."}});

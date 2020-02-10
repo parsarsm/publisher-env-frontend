@@ -8,8 +8,13 @@ class SignUpPage extends FormComponent {
     state = {};
 
     signup() {
+        console.log('hiiiiiii');
         const {username, password, email, firstName, lastName} = this.state.form;
         this.props.signup({username, password, email, firstName, lastName});
+    }
+
+    hello(){
+        console.log('hi');
     }
 
     render() {
@@ -44,7 +49,8 @@ class SignUpPage extends FormComponent {
                             <Form.Input fluid name={'lastName'} placeholder='Last Name'
                                         onChange={this.onFormInput('lastName')} icon={'last_name'}/>
 
-                            <Button color='black' fluid size='large' loading={this.props.loading}  onClick={() => this.signup()}>
+                            <Button color='black' fluid size='large' loading={this.props.loading}
+                                    onClick={() => this.signup()}>
                                 Sign up
                             </Button>
                         </Segment>
