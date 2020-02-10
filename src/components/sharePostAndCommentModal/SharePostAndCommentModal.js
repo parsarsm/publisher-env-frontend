@@ -1,8 +1,5 @@
 import React from 'react'
-import {Button, Divider, Header, Icon, Image, Modal, Segment} from 'semantic-ui-react'
-import MarkdownEditor from "../markdownEditor/MarkdownEditor";
-import {Tab} from 'semantic-ui-react'
-import ImageUploader from "../imageUploader/ImageUploader";
+import {Button, Header, Icon, Modal} from 'semantic-ui-react'
 
 
 export default class SharePostAndCommentModal extends React.PureComponent {

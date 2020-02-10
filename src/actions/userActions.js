@@ -33,7 +33,7 @@ export function loginAction(username, password) {
             dispatch({type: userActionTypes.LOGIN_FAILED, payload: {message: error.detail || "Login failed."}});
         } else {
             dispatch({type: userActionTypes.LOGIN_SUCCESS, payload: {tokenValues: response}});
-            dispatch({type: userActionTypes.PROFILE_LOADED});
+            dispatch(getMyProfileAction());
             dispatch(push(routes.FEED));
         }
     }

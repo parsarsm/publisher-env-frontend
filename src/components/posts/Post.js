@@ -7,7 +7,6 @@ import {routeParams} from "../../helpers/url";
 import {serverUrl} from "../../api";
 import {connect} from "react-redux";
 import {deletePostAction, dislikePostAction, likePostAction} from "../../actions/postActions";
-import PostModal from "../postModal/PostModal";
 import ShareLink from 'react-twitter-share-link'
 import SharePostAndCommentModal from "../sharePostAndCommentModal/SharePostAndCommentModal";
 
@@ -72,11 +71,11 @@ class Post extends React.Component {
                                         // <a href={link} target='_blank'>Share this on Twitter</a>
                                     )}
                                 </ShareLink>
-                                <SharePostAndCommentModal  trigger={
+                                <SharePostAndCommentModal trigger={
                                     <Feed.Like>
                                         <Icon color={"grey"} name={"share alternate"}/>Share
                                     </Feed.Like>}
-                                                           link={getPostLink(post.id)}
+                                                          link={getPostLink(post.id)}
                                 />
                             </Feed.Meta>
                         </Feed.Content>
