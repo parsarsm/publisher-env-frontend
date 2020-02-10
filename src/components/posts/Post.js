@@ -79,7 +79,7 @@ class Post extends React.Component {
 
                             <SharePostAndCommentModal  trigger={
                                 <Feed.Like>
-                                    <Icon color={"grey"} name={"copy"}/>Share
+                                    <Icon color={"grey"} name={"share alternate"}/>Share
                                 </Feed.Like>}
                                                       link={getPostLink(post.id)}
                             />
