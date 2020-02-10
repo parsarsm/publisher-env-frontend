@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {push} from 'connected-react-router';
 import {routes} from "../../config/routes";
 import {Link} from "react-router-dom";
+import PSearch from "../search/Search";
 
 class Header extends Component {
     render() {
@@ -15,8 +16,9 @@ class Header extends Component {
                                                                                               size={"big"}/> Reddit
                     </Menu.Item>
                     <Menu.Item style={{flexGrow: 1}}>
-                        <Input className='icon' fluid={true} icon='search' inverted size={"small"}
-                               placeholder='Search...'/>
+                        {/*<Input className='icon' fluid={true} icon='search' inverted size={"small"}*/}
+                        {/*       placeholder='Search...'/>*/}
+                        <PSearch/>
                     </Menu.Item>
                     {!loggedIn ? <>
                             <Menu.Item as={Link} to={routes.USER_LOGIN}>Login</Menu.Item>
@@ -32,7 +34,8 @@ class Header extends Component {
                             <Menu.Item as='a' title={'Notifications'}>
                                 <Icon name={"envelope"} size={"large"}/>
                             </Menu.Item>
-                            <Menu.Item  as={Link} to={routes.PROFILE_VIEW} title={'Profile'}><Icon name={"user"} size={"large"}/></Menu.Item>
+                            <Menu.Item as={Link} to={routes.PROFILE_VIEW} title={'Profile'}><Icon name={"user"}
+                                                                                                  size={"large"}/></Menu.Item>
                         </>
                     }
                 </Container>

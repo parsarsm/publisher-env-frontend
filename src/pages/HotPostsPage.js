@@ -1,6 +1,9 @@
 import React from 'react';
 import SidedContent from "../components/containers/SidedContent";
 import Posts from "../components/posts/Posts";
+import {connect} from "react-redux";
+import {latestPostsAction} from "../actions/latestPostsActions";
+import {hotPostsAction} from "../actions/hotPostsActions";
 
 const examplePosts = [
     {
@@ -45,12 +48,36 @@ const examplePosts = [
     },
 ];
 
-export default class HotPostsPage extends React.PureComponent {
+
+class HotPostsPage extends React.PureComponent {
+    getHotPosts() {
+        const lastId = this.props.posts ? this.props.posts[this.props.posts.length - 1].id : null;
+        this.props.getHotPosts(lastId);
+    }
+
+
+    componentDidMount() {
+        this.getHotPosts();
+    }
+
+
     render() {
+        const {posts, loading, end} = this.props;
         return (
             <SidedContent title={"Hot Posts"}>
-                <Posts posts={examplePosts}/>
+                <Posts posts={posts} end={end} loading={loading}/>
             </SidedContent>
         )
     }
 }
+
+export default connect(
+    (state) => ({
+        loading: state.hotPosts.loading,
+        posts: state.hotPosts.posts,
+        end: state.hotPosts.end,
+    }),
+    (dispatch) => ({
+        getHotPosts: (lastId) => dispatch(hotPostsAction(lastId))
+    })
+)(HotPostsPage);

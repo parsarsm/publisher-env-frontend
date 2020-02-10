@@ -52,9 +52,10 @@ const examplePosts = [
 class LatestPostsPage extends React.PureComponent {
 
     getLatestPosts() {
-        const lastId = this.props.posts ? this.props.posts[this.props.posts.length - 1].id : null;
+        const lastId = this.props.posts.length !== 0 ? this.props.posts[this.props.posts.length - 1].id : null;
         this.props.getLatestPosts(lastId);
     }
+
 
 
     componentDidMount() {
@@ -64,7 +65,8 @@ class LatestPostsPage extends React.PureComponent {
     render() {
         return (
             <SidedContent title={"Latest Posts"}>
-                <Posts posts={this.props.posts} loading={this.props.loading} end={this.props.end}/>
+                <Posts posts={this.props.posts} loading={this.props.loading} end={this.props.end}
+                       getPosts={() => this.getLatestPosts()}/>
             </SidedContent>
         )
     }

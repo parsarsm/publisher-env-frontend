@@ -28,20 +28,30 @@ export default class Post extends React.PureComponent {
                             {post.text}
                         </Feed.Extra>
                         <Feed.Meta style={{marginTop: '1em'}}>
-                            {post.permissions.like && <Feed.Like>
-                                <Icon color={post.liked ? "red" : "grey"} name={"thumbs up outline"}/>{post.likes} Likes
+                            {
+                                // post.permissions.like &&
+                            <Feed.Like>
+                                <Icon color={post.liked ? "red" : "grey"} name={"thumbs up outline"}/>{post.liked} Likes
                             </Feed.Like>}
-                            {post.permissions.dislike && <Feed.Like>
+                            {
+                                // post.permissions.dislike &&
+                                <Feed.Like>
                                 <Icon color={post.disliked ? "brown" : "grey"}
                                       name={"thumbs down outline"}/>{post.dislikes} Dislikes
                             </Feed.Like>}
-                            {post.permissions.reply && <Feed.Like>
+                            {
+                                // post.permissions.reply&&
+                                <Feed.Like>
                                 <Icon color={"grey"} name={"reply"}/> Reply
                             </Feed.Like>}
-                            {post.permissions.edit && <Feed.Like>
+                            {
+                                // post.permissions.edit &&
+                                <Feed.Like>
                                 <Icon color={"grey"} name={"edit"}/>Edit
                             </Feed.Like>}
-                            {post.permissions.delete && <Feed.Like>
+                            {
+                                // post.permissions.delete &&
+                                <Feed.Like>
                                 <Icon color={"grey"} name={"trash alternate outline"}/>Delete
                             </Feed.Like>}
                         </Feed.Meta>
