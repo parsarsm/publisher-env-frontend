@@ -9,6 +9,7 @@ const endpoints = {
     HOT_POSTS: '/api/posts/hottest/',
     FEED_POSTS: '/api/posts/',
     USER: '/api/user/',
+    MY_PROFILE: '/api/profiles/my/',
 };
 
 export default class Api {
@@ -213,5 +214,12 @@ export default class Api {
             `${endpoints.POSTS}${id}/dislike/`,
             'DELETE'
         );
+    }
+
+    async myProfile() {
+        return this._fetch(
+            endpoints.MY_PROFILE,
+            'GET'
+        )
     }
 }
