@@ -3,7 +3,6 @@ import {profileActionTypes} from "../actions/profileActions";
 import {resetPassActionTypes} from "../actions/resetPassActions";
 
 const initialState = {
-    loggedIn: false,
 };
 
 export default function resetPassReducer(prevState = initialState, action) {

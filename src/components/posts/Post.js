@@ -16,8 +16,9 @@ export default class Post extends React.PureComponent {
                     </Feed.Label>
                     <Feed.Content>
                         <Feed.Summary>
-                            <Feed.User>{post.userName}</Feed.User> <Link
-                            to={routeParams(routes.POST_VIEW, {id: post.id})}>{post.title}</Link>
+                            <Feed.User>{post.userName}</Feed.User>
+                            <Link
+                                to={routeParams(routes.POST_VIEW, {id: post.id})}>{post.title}</Link>
                             <Feed.Date>{timeAgo(post.createdAt)}</Feed.Date>
                         </Feed.Summary>
                         <Feed.Extra images>

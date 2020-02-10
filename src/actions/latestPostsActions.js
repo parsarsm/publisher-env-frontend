@@ -14,6 +14,7 @@ export function latestPostsAction(lastId) {
         const {response, error} = await Api.getLatestPosts(null, lastId);
         // if (error) {
         //     dispatch({type: latestPostsActionTypes.LATEST_POSTS_END, payload: {message: error.detail || "Login failed."}});
+        // console.log(response, error, 'sd');
         if (response.length === 0) {
             dispatch({type: latestPostsActionTypes.LATEST_POSTS_END});
         } else {

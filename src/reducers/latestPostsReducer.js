@@ -2,7 +2,7 @@ import {userActionTypes} from "../actions/userActions";
 import {latestPostsActionTypes} from "../actions/latestPostsActions";
 
 const initialState = {
-    loggedIn: false,
+    posts: []
 };
 
 export default function latestPostsReducer(prevState = initialState, action) {
@@ -13,7 +13,7 @@ export default function latestPostsReducer(prevState = initialState, action) {
             return {
                 ...prevState,
                 loading: false,
-                posts: (prevState.posts ? prevState.posts : []).concat(action.payload.newPosts)
+                posts: (prevState.posts).concat(action.payload.newPosts)
             };
         case latestPostsActionTypes.LATEST_POSTS_END:
             return {...prevState, loading: false, end: true};

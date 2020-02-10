@@ -2,7 +2,6 @@ import {userActionTypes} from "../actions/userActions";
 import {profileActionTypes} from "../actions/profileActions";
 
 const initialState = {
-    loggedIn: false,
 };
 
 export default function profileReducer(prevState = initialState, action) {
