@@ -1,12 +1,16 @@
 import React from "react";
 import {Feed, Icon} from "semantic-ui-react";
 import timeAgo from "node-time-ago";
-import {routes} from "../../config/routes";
+import {getPostLink, routes} from "../../config/routes";
 import {Link} from "react-router-dom";
 import {routeParams} from "../../helpers/url";
 import {serverUrl} from "../../api";
 import {connect} from "react-redux";
 import {dislikePostAction, likePostAction} from "../../actions/postActions";
+import PostModal from "../postModal/PostModal";
+import ShareLink from 'react-twitter-share-link'
+import SharePostAndCommentModal from "../sharePostAndCommentModal/SharePostAndCommentModal";
+
 
 class Post extends React.Component {
 
@@ -49,15 +53,37 @@ class Post extends React.Component {
                                 <Icon color={post.disliked > 0 ? "brown" : "grey"}
                                       name={"thumbs down outline"}/>{post.dislikes_count} Dislikes
                             </Feed.Like>}
-                            {post.permissions.reply && <Feed.Like>
+                            {post.permissions.reply &&
+                            <PostModal trigger={<Feed.Like>
                                 <Icon color={"grey"} name={"reply"}/>Reply
-                            </Feed.Like>}
+                            </Feed.Like>}/>
+                            }
                             {post.permissions.edit && <Feed.Like>
                                 <Icon color={"grey"} name={"edit"}/>Edit
                             </Feed.Like>}
                             {post.permissions.delete && <Feed.Like>
                                 <Icon color={"grey"} name={"trash alternate outline"}/>Delete
                             </Feed.Like>}
+                            {post.permissions.delete &&
+                            <ShareLink link={getPostLink(post.id)}>
+                                {link => (
+                                    <Feed.Like as={'a'} href={link} target='_blank'>
+                                        <Icon color={"grey"} name={"twitter"}/>Share on twitter
+                                    </Feed.Like>
+                                    // <a href={link} target='_blank'>Share this on Twitter</a>
+                                )}
+                            </ShareLink>
+                            }
+
+                            {post.permissions.like &&
+
+                            <SharePostAndCommentModal  trigger={
+                                <Feed.Like>
+                                    <Icon color={"grey"} name={"copy"}/>Share
+                                </Feed.Like>}
+                                                      link={getPostLink(post.id)}
+                            />
+                            }
                         </Feed.Meta>
                     </Feed.Content>
                 </Feed.Event>

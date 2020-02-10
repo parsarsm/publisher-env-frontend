@@ -19,7 +19,7 @@ export default function Routes() {
     return (
         <Page>
             <Switch>
-                <Route exact path={'/profile'}>
+                <Route exact path={routes.PROFILE}>
                     <Profile/>
                 </Route>
                 <Route exact path={routes.PROFILE_SETTINGS}>

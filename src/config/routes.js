@@ -14,6 +14,13 @@ export const routes = {
     CHANNEL_EDIT: '/channels/edit/:id',
     CHANNEL_MEMBERS: '/channels/members/:id',
     SEARCH: '/search/:query',
-    PROFILE_SETTINGS: '/profile/settings'
+    PROFILE_SETTINGS: '/profile/settings',
+    PROFILE: '/profile',
+};
 
+const baseUrl = 'http://localhost:8000';
+
+export const getPostLink = (postId) => {
+    console.log(baseUrl + '/posts/view/' + postId);
+    return baseUrl + '/posts/view/' + postId;
 };

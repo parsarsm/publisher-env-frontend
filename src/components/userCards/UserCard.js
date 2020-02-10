@@ -25,6 +25,9 @@ export default class UserCard extends React.PureComponent {
                         <Button basic color='red'>
                             Remove
                         </Button>
+                        <Button basic color='red'>
+                            Block
+                        </Button>
                     </div>
                 </Card.Content>
             </Card>

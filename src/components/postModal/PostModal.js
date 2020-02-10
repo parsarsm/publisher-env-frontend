@@ -17,9 +17,9 @@ export default class PostModal extends React.PureComponent {
             <Modal
                 trigger={trigger}
             >
-                <Modal.Header>Profile Picture</Modal.Header>
+                <Modal.Header>Post</Modal.Header>
                 <Modal.Content image>
-                    <Tab menu={{fluid: true, vertical: true, tabular: 'right'}} panes={panes}/>
+                    <Tab panes={panes}/>
                 </Modal.Content>
                 <Modal.Actions>
                     <Button>
