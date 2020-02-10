@@ -5,7 +5,9 @@ const endpoints = {
     AUTH_TOKEN: '/api/token/',
     REFRESH_TOKEN: '/api/token/refresh/',
     POSTS: '/api/posts/',
-    LATEST_POSTS: '/api/posts/latest',
+    LATEST_POSTS: '/api/posts/latest/',
+    HOT_POSTS: '/api/posts/hottest/',
+    FEED_POSTS: '/api/posts/',
     USER: '/api/user/',
 };
 
@@ -82,6 +84,9 @@ export default class Api {
                 }
             );
 
+            if (response.status === 204) {
+                return {response: true};
+            }
             const jsonResponse = await response.json();
             if (response.status >= 200 && response.status < 300) {
                 return {response: jsonResponse, status: response.status};
@@ -134,11 +139,79 @@ export default class Api {
         this.setAuthentication(null);
     }
 
-    async getLatestPosts(from = null, to = null) {
+    async _getPostsList(endpoint, from, to) {
         const queryString = {...(from ? {_from: from} : {}), ...(to ? {_to: to} : {})};
         return this._fetch(
-            `${endpoints.LATEST_POSTS}${encodeQueryString(queryString)}`,
+            `${endpoint}${encodeQueryString(queryString)}`,
             'GET'
+        );
+    }
+
+    async getLatestPosts(from = null, to = null) {
+        return this._getPostsList(endpoints.LATEST_POSTS, from, to);
+    }
+
+    async getHotPosts() {
+        return this._fetch(
+            endpoints.HOT_POSTS,
+            'GET'
+        );
+    }
+
+    async getFeedPosts(from = null, to = null) {
+        return this._getPostsList(endpoints.FEED_POSTS, from, to);
+
+    }
+
+    async insertPost(data) {
+        return this._fetch(
+            endpoints.POSTS,
+            'POST',
+            data
+        );
+    }
+
+    async updatePost(data) {
+        return this._fetch(
+            endpoints.POSTS,
+            'PATCH',
+            data
+        );
+    }
+
+    async removePost(id) {
+        return this._fetch(
+            `${endpoints.POSTS}${id}/`,
+            'DELETE'
+        );
+    }
+
+    async like(id) {
+        return this._fetch(
+            `${endpoints.POSTS}${id}/like/`,
+            'POST'
+        );
+    }
+
+    async removeLike(id) {
+        return this._fetch(
+            `${endpoints.POSTS}${id}/like/`,
+            'DELETE'
+        );
+    }
+
+    async dislike(id) {
+        return this._fetch(
+            `${endpoints.POSTS}${id}/dislike/`,
+            'POST'
+        );
+    }
+
+
+    async removeDislike(id) {
+        return this._fetch(
+            `${endpoints.POSTS}${id}/dislike/`,
+            'DELETE'
         );
     }
 }
