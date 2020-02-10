@@ -28,9 +28,9 @@ class LoginPage extends FormComponent {
                     </Header>
                     <Form size='large'>
                         <Segment stacked>
-                            {this.props.errMessage ? (
+                            {this.props.failedLogin ? (
                                 <Message negative>
-                                    <p>{this.props.errMessage}</p>
+                                    <p>Username or Password is wrong!</p>
                                 </Message>
                             ) : ''}
 

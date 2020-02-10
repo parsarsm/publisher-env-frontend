@@ -15,7 +15,8 @@ export const routes = {
     CHANNEL_MEMBERS: '/channels/members/:id',
     SEARCH: '/search/:query',
     PROFILE_SETTINGS: '/profile/settings',
-    PROFILE: '/profile',
+    PROFILE: '/profile', CHANNEL: '/channel'
+
 };
 
 const baseUrl = 'http://localhost:8000';

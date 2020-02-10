@@ -30,7 +30,10 @@ export function loginAction(username, password) {
         dispatch({type: userActionTypes.LOGIN_START});
         const {response, error} = await Api.login(username, password);
         if (error) {
-            dispatch({type: userActionTypes.LOGIN_FAILED, payload: {message: error.detail || "Login failed."}});
+            dispatch({
+                type: userActionTypes.LOGIN_FAILED,
+                payload: {failedLogin: true, message: "Username or Password is wrong!"}
+            });
         } else {
             dispatch({type: userActionTypes.LOGIN_SUCCESS, payload: {tokenValues: response}});
             dispatch(getMyProfileAction());

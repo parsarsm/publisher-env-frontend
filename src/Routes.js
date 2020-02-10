@@ -13,12 +13,16 @@ import EditProfilePage from "./pages/EditProfilePage";
 import PostPage from "./pages/PostPage";
 import Profile from "./pages/profile";
 import ProfileSettings from "./pages/ProfileSettings";
+import Channel from "./pages/Channel";
 
 
 export default function Routes() {
     return (
         <Page>
             <Switch>
+                <Route exact path={routes.CHANNEL}>
+                    <Channel/>
+                </Route>
                 <Route exact path={routes.PROFILE}>
                     <Profile/>
                 </Route>

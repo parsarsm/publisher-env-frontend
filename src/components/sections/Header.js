@@ -16,9 +16,9 @@ class Header extends Component {
                                                                                               size={"big"}/> Reddit
                     </Menu.Item>
                     <Menu.Item style={{flexGrow: 1}}>
-                        {/*<Input className='icon' fluid={true} icon='search' inverted size={"small"}*/}
-                        {/*       placeholder='Search...'/>*/}
-                        <PSearch/>
+                        <Input className='icon' fluid={true} icon='search' inverted size={"small"}
+                               placeholder='Search...'/>
+                        {/*<PSearch/>*/}
                     </Menu.Item>
                     {!loggedIn ? <>
                             <Menu.Item as={Link} to={routes.USER_LOGIN}>Login</Menu.Item>

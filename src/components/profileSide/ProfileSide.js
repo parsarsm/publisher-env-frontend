@@ -23,17 +23,6 @@ export default class ProfileSide extends React.PureComponent {
                             <Table.Row>
                                 <Table.Cell>
                                     <Header as='h4' image>
-                                        <Icon name={'birthday cake'}/>
-                                        <Header.Content>
-                                            <Header.Subheader>Birth day</Header.Subheader>
-                                        </Header.Content>
-                                    </Header>
-                                </Table.Cell>
-                                <Table.Cell>{profile.birthday}</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell>
-                                    <Header as='h4' image>
                                         <Icon name={'pencil'}/>
                                         <Header.Content>
                                             <Header.Subheader>Posts</Header.Subheader>
@@ -45,35 +34,13 @@ export default class ProfileSide extends React.PureComponent {
                             <Table.Row>
                                 <Table.Cell>
                                     <Header as='h4' image>
-                                        <Icon name={'comments'}/>
-                                        <Header.Content>
-                                            <Header.Subheader>Comments</Header.Subheader>
-                                        </Header.Content>
-                                    </Header>
-                                </Table.Cell>
-                                <Table.Cell>{profile.comments}</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell>
-                                    <Header as='h4' image>
                                         <Icon name={"users"}/>
                                         <Header.Content>
-                                            <Header.Subheader>Followings</Header.Subheader>
+                                            <Header.Subheader>Subscriber</Header.Subheader>
                                         </Header.Content>
                                     </Header>
                                 </Table.Cell>
-                                <Table.Cell>{profile.followings}</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell>
-                                    <Header as='h4' image>
-                                        <Icon name={"users"}/>
-                                        <Header.Content>
-                                            <Header.Subheader>Followers</Header.Subheader>
-                                        </Header.Content>
-                                    </Header>
-                                </Table.Cell>
-                                <Table.Cell>{profile.followers}</Table.Cell>
+                                <Table.Cell>{profile.subscriber}</Table.Cell>
                             </Table.Row>
 
                         </Table.Body>
@@ -81,13 +48,12 @@ export default class ProfileSide extends React.PureComponent {
                 </Card.Content>
                 <Card.Content extra>
                     <Button.Group vertical labeled icon fluid>
-                        <Button icon='pencil' content='New Post'/>
                         <Button icon='setting' content='Settings'/>
                     </Button.Group>
                 </Card.Content>
                 <div className="ui bottom attached button">
                     <i className="add icon"/>
-                    Follow
+                    Subscribe
                 </div>
             </Card>
         );
