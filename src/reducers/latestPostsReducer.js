@@ -1,4 +1,3 @@
-import {userActionTypes} from "../actions/userActions";
 import {latestPostsActionTypes} from "../actions/latestPostsActions";
 
 const initialState = {

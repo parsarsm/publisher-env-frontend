@@ -6,13 +6,12 @@ import {Link} from "react-router-dom";
 import {routeParams} from "../../helpers/url";
 import {serverUrl} from "../../api";
 import {connect} from "react-redux";
-import {latestPostsAction} from "../../actions/latestPostsActions";
+import {dislikePostAction, likePostAction} from "../../actions/postActions";
 
-class Post extends React.PureComponent {
+class Post extends React.Component {
+
     render() {
         const {post, user} = this.props;
-
-
         post.permissions = {
             like: !!user,
             dislike: !!user,
@@ -41,12 +40,13 @@ class Post extends React.PureComponent {
                             {post.text}
                         </Feed.Extra>
                         <Feed.Meta style={{marginTop: '1em'}}>
-                            {post.permissions.like && <Feed.Like>
-                                <Icon color={post.liked ? "red" : "grey"}
+                            {post.permissions.like && <Feed.Like onClick={() => this.props.like(post.id, post.liked)}>
+                                <Icon color={post.liked > 0 ? "red" : "grey"}
                                       name={"thumbs up outline"}/>{post.likes_count} Likes
                             </Feed.Like>}
-                            {post.permissions.dislike && <Feed.Like>
-                                <Icon color={post.disliked ? "brown" : "grey"}
+                            {post.permissions.dislike &&
+                            <Feed.Like onClick={() => this.props.dislike(post.id, post.disliked)}>
+                                <Icon color={post.disliked > 0 ? "brown" : "grey"}
                                       name={"thumbs down outline"}/>{post.dislikes_count} Dislikes
                             </Feed.Like>}
                             {post.permissions.reply && <Feed.Like>
@@ -70,5 +70,8 @@ export default connect(
     (state) => ({
         user: state.user.user
     }),
-    (dispatch) => ({})
+    (dispatch) => ({
+        like: (id, active) => dispatch(likePostAction(id, active)),
+        dislike: (id, active) => dispatch(dislikePostAction(id, active))
+    })
 )(Post);

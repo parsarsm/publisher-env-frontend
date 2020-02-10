@@ -13,6 +13,10 @@ class LatestPostsPage extends React.PureComponent {
     }
 
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return true;
+    }
+
     componentDidMount() {
         this.getLatestPosts();
     }

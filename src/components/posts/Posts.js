@@ -6,6 +6,7 @@ import Post from "./Post";
 export default class Posts extends React.PureComponent {
     render() {
         const {posts, end, loading} = this.props;
+        console.log('rendered');
         return (
             <>
                 {posts && posts.length ? posts.map(post => (

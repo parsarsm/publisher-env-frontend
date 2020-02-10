@@ -11,6 +11,26 @@ export default function userReducer(prevState = initialState, action) {
             }
 
             return {...prevState, ...posts};
+        case postActionTypes.LIKE_POST:
+            return {
+                ...prevState, ...{
+                    [action.payload.id]: {
+                        ...prevState[action.payload.id],
+                        liked: !action.payload.active,
+                        likes_count: prevState[action.payload.id].likes_count + (action.payload.active ? -1 : 1)
+                    }
+                }
+            };
+        case postActionTypes.DISLIKE_POST:
+            return {
+                ...prevState, ...{
+                    [action.payload.id]: {
+                        ...prevState[action.payload.id],
+                        disliked: !action.payload.active,
+                        dislikes_count: prevState[action.payload.id].dislikes_count + (action.payload.active ? -1 : 1)
+                    }
+                }
+            };
     }
 
     return prevState;
